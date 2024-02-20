@@ -48,21 +48,21 @@
             this.tabControl1.Controls.Add(this.EnumsTabPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(600, 366);
+            this.tabControl1.Size = new System.Drawing.Size(800, 450);
             this.tabControl1.TabIndex = 0;
             // 
             // EnumsTabPage
             // 
             this.EnumsTabPage.Controls.Add(this.WeekdayParsingBox);
             this.EnumsTabPage.Controls.Add(this.EnumerationBox);
-            this.EnumsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.EnumsTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EnumsTabPage.Location = new System.Drawing.Point(4, 25);
+            this.EnumsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EnumsTabPage.Name = "EnumsTabPage";
-            this.EnumsTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.EnumsTabPage.Size = new System.Drawing.Size(592, 340);
+            this.EnumsTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.EnumsTabPage.Size = new System.Drawing.Size(792, 421);
             this.EnumsTabPage.TabIndex = 0;
             this.EnumsTabPage.Tag = "";
             this.EnumsTabPage.Text = "Enums";
@@ -71,11 +71,11 @@
             // WeekdayParsingBox
             // 
             this.WeekdayParsingBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.WeekdayParsingBox.Location = new System.Drawing.Point(2, 198);
-            this.WeekdayParsingBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.WeekdayParsingBox.Location = new System.Drawing.Point(3, 240);
+            this.WeekdayParsingBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.WeekdayParsingBox.Name = "WeekdayParsingBox";
-            this.WeekdayParsingBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.WeekdayParsingBox.Size = new System.Drawing.Size(243, 140);
+            this.WeekdayParsingBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.WeekdayParsingBox.Size = new System.Drawing.Size(324, 179);
             this.WeekdayParsingBox.TabIndex = 3;
             this.WeekdayParsingBox.TabStop = false;
             this.WeekdayParsingBox.Text = "Weekday Parsing";
@@ -90,11 +90,11 @@
             this.EnumerationBox.Controls.Add(this.ChooseValueBox);
             this.EnumerationBox.Controls.Add(this.ChooseEnumerationBox);
             this.EnumerationBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.EnumerationBox.Location = new System.Drawing.Point(2, 2);
-            this.EnumerationBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EnumerationBox.Location = new System.Drawing.Point(3, 2);
+            this.EnumerationBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EnumerationBox.Name = "EnumerationBox";
-            this.EnumerationBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.EnumerationBox.Size = new System.Drawing.Size(588, 196);
+            this.EnumerationBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.EnumerationBox.Size = new System.Drawing.Size(786, 238);
             this.EnumerationBox.TabIndex = 0;
             this.EnumerationBox.TabStop = false;
             this.EnumerationBox.Text = "Enumarations";
@@ -102,53 +102,52 @@
             // IntValueLabel
             // 
             this.IntValueLabel.AutoSize = true;
-            this.IntValueLabel.Location = new System.Drawing.Point(292, 17);
-            this.IntValueLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.IntValueLabel.Location = new System.Drawing.Point(389, 21);
             this.IntValueLabel.Name = "IntValueLabel";
-            this.IntValueLabel.Size = new System.Drawing.Size(54, 13);
+            this.IntValueLabel.Size = new System.Drawing.Size(62, 16);
             this.IntValueLabel.TabIndex = 5;
             this.IntValueLabel.Text = "Int value: ";
             // 
             // ChooseValueLabel
             // 
             this.ChooseValueLabel.AutoSize = true;
-            this.ChooseValueLabel.Location = new System.Drawing.Point(155, 17);
-            this.ChooseValueLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ChooseValueLabel.Location = new System.Drawing.Point(207, 21);
             this.ChooseValueLabel.Name = "ChooseValueLabel";
-            this.ChooseValueLabel.Size = new System.Drawing.Size(75, 13);
+            this.ChooseValueLabel.Size = new System.Drawing.Size(93, 16);
             this.ChooseValueLabel.TabIndex = 4;
             this.ChooseValueLabel.Text = "Choose value:";
             // 
             // ChooseEnumarationLabel
             // 
             this.ChooseEnumarationLabel.AutoSize = true;
-            this.ChooseEnumarationLabel.Location = new System.Drawing.Point(2, 17);
-            this.ChooseEnumarationLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ChooseEnumarationLabel.Location = new System.Drawing.Point(3, 21);
             this.ChooseEnumarationLabel.Name = "ChooseEnumarationLabel";
-            this.ChooseEnumarationLabel.Size = new System.Drawing.Size(107, 13);
+            this.ChooseEnumarationLabel.Size = new System.Drawing.Size(134, 16);
             this.ChooseEnumarationLabel.TabIndex = 3;
             this.ChooseEnumarationLabel.Text = "Choose enumaration:";
             // 
             // IntValueTextBox
             // 
-            this.IntValueTextBox.Location = new System.Drawing.Point(295, 32);
-            this.IntValueTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IntValueTextBox.Location = new System.Drawing.Point(393, 39);
+            this.IntValueTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.IntValueTextBox.Name = "IntValueTextBox";
-            this.IntValueTextBox.Size = new System.Drawing.Size(76, 20);
+            this.IntValueTextBox.Size = new System.Drawing.Size(100, 22);
             this.IntValueTextBox.TabIndex = 2;
             // 
             // ChooseValueBox
             // 
             this.ChooseValueBox.FormattingEnabled = true;
-            this.ChooseValueBox.Location = new System.Drawing.Point(158, 32);
-            this.ChooseValueBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChooseValueBox.ItemHeight = 16;
+            this.ChooseValueBox.Location = new System.Drawing.Point(211, 39);
+            this.ChooseValueBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChooseValueBox.Name = "ChooseValueBox";
-            this.ChooseValueBox.Size = new System.Drawing.Size(124, 147);
+            this.ChooseValueBox.Size = new System.Drawing.Size(164, 180);
             this.ChooseValueBox.TabIndex = 1;
             // 
             // ChooseEnumerationBox
             // 
             this.ChooseEnumerationBox.FormattingEnabled = true;
+            this.ChooseEnumerationBox.ItemHeight = 16;
             this.ChooseEnumerationBox.Items.AddRange(new object[] {
             "Colors",
             "EducationForm",
@@ -156,19 +155,20 @@
             "Season",
             "SmartphoneManufactures",
             "Weekday"});
-            this.ChooseEnumerationBox.Location = new System.Drawing.Point(4, 32);
-            this.ChooseEnumerationBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChooseEnumerationBox.Location = new System.Drawing.Point(5, 39);
+            this.ChooseEnumerationBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChooseEnumerationBox.Name = "ChooseEnumerationBox";
-            this.ChooseEnumerationBox.Size = new System.Drawing.Size(116, 147);
+            this.ChooseEnumerationBox.Size = new System.Drawing.Size(153, 180);
             this.ChooseEnumerationBox.TabIndex = 0;
+            this.ChooseEnumerationBox.SelectedIndexChanged += new System.EventHandler(this.ChooseEnumerationBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
