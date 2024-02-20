@@ -143,6 +143,7 @@
             this.ChooseValueBox.Name = "ChooseValueBox";
             this.ChooseValueBox.Size = new System.Drawing.Size(164, 180);
             this.ChooseValueBox.TabIndex = 1;
+            this.ChooseValueBox.SelectedIndexChanged += new System.EventHandler(this.ChooseValueBox_SelectedIndexChanged);
             // 
             // ChooseEnumerationBox
             // 

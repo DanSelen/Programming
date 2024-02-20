@@ -17,6 +17,9 @@ namespace ProjectProgramming
             InitializeComponent();
             ChooseValueBox.Items.AddRange(Enum.GetValues(typeof(Colors)).Cast<object>().ToArray());
             //Выбор первого элемента списка (Colors) по умолчанию
+
+            IntValueTextBox.ReadOnly = true;
+            //Делаем IntValueBox только для чтения, без возможности вписывать данные
         }
 
         private void ChooseEnumerationBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,6 +48,12 @@ namespace ProjectProgramming
 
 
             }
+        }
+
+        private void ChooseValueBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IntValueTextBox.Clear();
+            IntValueTextBox.Text += ChooseValueBox.SelectedIndex + 1;
         }
     }
 }
