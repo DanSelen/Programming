@@ -30,12 +30,12 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EnumsTabPage = new System.Windows.Forms.TabPage();
-            this.WeekdayParsingBox = new System.Windows.Forms.GroupBox();
+            this.WeekdayParsingGroupBox = new System.Windows.Forms.GroupBox();
             this.WeekdayParsingLabel = new System.Windows.Forms.Label();
             this.TypeValueForParsingLabel = new System.Windows.Forms.Label();
             this.ParseButton = new System.Windows.Forms.Button();
             this.ParseTextBox = new System.Windows.Forms.TextBox();
-            this.EnumerationBox = new System.Windows.Forms.GroupBox();
+            this.EnumerationGroupBox = new System.Windows.Forms.GroupBox();
             this.IntValueLabel = new System.Windows.Forms.Label();
             this.ChooseValueLabel = new System.Windows.Forms.Label();
             this.ChooseEnumarationLabel = new System.Windows.Forms.Label();
@@ -43,13 +43,13 @@
             this.ChooseValueBox = new System.Windows.Forms.ListBox();
             this.ChooseEnumerationBox = new System.Windows.Forms.ListBox();
             this.SeasonGroupBox = new System.Windows.Forms.GroupBox();
-            this.ChooseSeasonLabel = new System.Windows.Forms.Label();
-            this.SeasonTextBox = new System.Windows.Forms.TextBox();
+            this.SeasonComboBox = new System.Windows.Forms.ComboBox();
             this.GoSeasonButton = new System.Windows.Forms.Button();
+            this.ChooseSeasonLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.EnumsTabPage.SuspendLayout();
-            this.WeekdayParsingBox.SuspendLayout();
-            this.EnumerationBox.SuspendLayout();
+            this.WeekdayParsingGroupBox.SuspendLayout();
+            this.EnumerationGroupBox.SuspendLayout();
             this.SeasonGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,66 +58,69 @@
             this.tabControl1.Controls.Add(this.EnumsTabPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(600, 366);
+            this.tabControl1.Size = new System.Drawing.Size(800, 450);
             this.tabControl1.TabIndex = 0;
             // 
             // EnumsTabPage
             // 
-            this.EnumsTabPage.Controls.Add(this.WeekdayParsingBox);
-            this.EnumsTabPage.Controls.Add(this.EnumerationBox);
+            this.EnumsTabPage.Controls.Add(this.WeekdayParsingGroupBox);
+            this.EnumsTabPage.Controls.Add(this.EnumerationGroupBox);
             this.EnumsTabPage.Controls.Add(this.SeasonGroupBox);
-            this.EnumsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.EnumsTabPage.Margin = new System.Windows.Forms.Padding(2);
+            this.EnumsTabPage.Location = new System.Drawing.Point(4, 25);
+            this.EnumsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EnumsTabPage.Name = "EnumsTabPage";
-            this.EnumsTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.EnumsTabPage.Size = new System.Drawing.Size(592, 340);
+            this.EnumsTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.EnumsTabPage.Size = new System.Drawing.Size(792, 421);
             this.EnumsTabPage.TabIndex = 0;
             this.EnumsTabPage.Tag = "";
             this.EnumsTabPage.Text = "Enums";
             this.EnumsTabPage.UseVisualStyleBackColor = true;
             // 
-            // WeekdayParsingBox
+            // WeekdayParsingGroupBox
             // 
-            this.WeekdayParsingBox.Controls.Add(this.WeekdayParsingLabel);
-            this.WeekdayParsingBox.Controls.Add(this.TypeValueForParsingLabel);
-            this.WeekdayParsingBox.Controls.Add(this.ParseButton);
-            this.WeekdayParsingBox.Controls.Add(this.ParseTextBox);
-            this.WeekdayParsingBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.WeekdayParsingBox.Location = new System.Drawing.Point(2, 198);
-            this.WeekdayParsingBox.Margin = new System.Windows.Forms.Padding(2);
-            this.WeekdayParsingBox.Name = "WeekdayParsingBox";
-            this.WeekdayParsingBox.Padding = new System.Windows.Forms.Padding(2);
-            this.WeekdayParsingBox.Size = new System.Drawing.Size(282, 140);
-            this.WeekdayParsingBox.TabIndex = 3;
-            this.WeekdayParsingBox.TabStop = false;
-            this.WeekdayParsingBox.Text = "Weekday Parsing";
+            this.WeekdayParsingGroupBox.Controls.Add(this.WeekdayParsingLabel);
+            this.WeekdayParsingGroupBox.Controls.Add(this.TypeValueForParsingLabel);
+            this.WeekdayParsingGroupBox.Controls.Add(this.ParseButton);
+            this.WeekdayParsingGroupBox.Controls.Add(this.ParseTextBox);
+            this.WeekdayParsingGroupBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.WeekdayParsingGroupBox.Location = new System.Drawing.Point(3, 240);
+            this.WeekdayParsingGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.WeekdayParsingGroupBox.Name = "WeekdayParsingGroupBox";
+            this.WeekdayParsingGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.WeekdayParsingGroupBox.Size = new System.Drawing.Size(376, 179);
+            this.WeekdayParsingGroupBox.TabIndex = 3;
+            this.WeekdayParsingGroupBox.TabStop = false;
+            this.WeekdayParsingGroupBox.Text = "Weekday Parsing";
             // 
             // WeekdayParsingLabel
             // 
             this.WeekdayParsingLabel.AutoSize = true;
-            this.WeekdayParsingLabel.Location = new System.Drawing.Point(21, 73);
+            this.WeekdayParsingLabel.Location = new System.Drawing.Point(28, 90);
+            this.WeekdayParsingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.WeekdayParsingLabel.Name = "WeekdayParsingLabel";
-            this.WeekdayParsingLabel.Size = new System.Drawing.Size(96, 13);
+            this.WeekdayParsingLabel.Size = new System.Drawing.Size(124, 16);
             this.WeekdayParsingLabel.TabIndex = 3;
             this.WeekdayParsingLabel.Text = "Этот день недели";
             // 
             // TypeValueForParsingLabel
             // 
             this.TypeValueForParsingLabel.AutoSize = true;
-            this.TypeValueForParsingLabel.Location = new System.Drawing.Point(21, 34);
+            this.TypeValueForParsingLabel.Location = new System.Drawing.Point(28, 42);
+            this.TypeValueForParsingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TypeValueForParsingLabel.Name = "TypeValueForParsingLabel";
-            this.TypeValueForParsingLabel.Size = new System.Drawing.Size(118, 13);
+            this.TypeValueForParsingLabel.Size = new System.Drawing.Size(147, 16);
             this.TypeValueForParsingLabel.TabIndex = 2;
             this.TypeValueForParsingLabel.Text = "Type value for parsing: ";
             // 
             // ParseButton
             // 
-            this.ParseButton.Location = new System.Drawing.Point(180, 50);
+            this.ParseButton.Location = new System.Drawing.Point(240, 62);
+            this.ParseButton.Margin = new System.Windows.Forms.Padding(4);
             this.ParseButton.Name = "ParseButton";
-            this.ParseButton.Size = new System.Drawing.Size(75, 23);
+            this.ParseButton.Size = new System.Drawing.Size(100, 28);
             this.ParseButton.TabIndex = 1;
             this.ParseButton.Text = "Parse";
             this.ParseButton.UseVisualStyleBackColor = true;
@@ -125,81 +128,81 @@
             // 
             // ParseTextBox
             // 
-            this.ParseTextBox.Location = new System.Drawing.Point(20, 50);
+            this.ParseTextBox.Location = new System.Drawing.Point(27, 62);
+            this.ParseTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ParseTextBox.Name = "ParseTextBox";
-            this.ParseTextBox.Size = new System.Drawing.Size(154, 20);
+            this.ParseTextBox.Size = new System.Drawing.Size(204, 22);
             this.ParseTextBox.TabIndex = 0;
             // 
-            // EnumerationBox
+            // EnumerationGroupBox
             // 
-            this.EnumerationBox.AutoSize = true;
-            this.EnumerationBox.Controls.Add(this.IntValueLabel);
-            this.EnumerationBox.Controls.Add(this.ChooseValueLabel);
-            this.EnumerationBox.Controls.Add(this.ChooseEnumarationLabel);
-            this.EnumerationBox.Controls.Add(this.IntValueTextBox);
-            this.EnumerationBox.Controls.Add(this.ChooseValueBox);
-            this.EnumerationBox.Controls.Add(this.ChooseEnumerationBox);
-            this.EnumerationBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.EnumerationBox.Location = new System.Drawing.Point(2, 2);
-            this.EnumerationBox.Margin = new System.Windows.Forms.Padding(2);
-            this.EnumerationBox.Name = "EnumerationBox";
-            this.EnumerationBox.Padding = new System.Windows.Forms.Padding(2);
-            this.EnumerationBox.Size = new System.Drawing.Size(588, 196);
-            this.EnumerationBox.TabIndex = 0;
-            this.EnumerationBox.TabStop = false;
-            this.EnumerationBox.Text = "Enumarations";
+            this.EnumerationGroupBox.AutoSize = true;
+            this.EnumerationGroupBox.Controls.Add(this.IntValueLabel);
+            this.EnumerationGroupBox.Controls.Add(this.ChooseValueLabel);
+            this.EnumerationGroupBox.Controls.Add(this.ChooseEnumarationLabel);
+            this.EnumerationGroupBox.Controls.Add(this.IntValueTextBox);
+            this.EnumerationGroupBox.Controls.Add(this.ChooseValueBox);
+            this.EnumerationGroupBox.Controls.Add(this.ChooseEnumerationBox);
+            this.EnumerationGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.EnumerationGroupBox.Location = new System.Drawing.Point(3, 2);
+            this.EnumerationGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.EnumerationGroupBox.Name = "EnumerationGroupBox";
+            this.EnumerationGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.EnumerationGroupBox.Size = new System.Drawing.Size(786, 238);
+            this.EnumerationGroupBox.TabIndex = 0;
+            this.EnumerationGroupBox.TabStop = false;
+            this.EnumerationGroupBox.Text = "Enumarations";
             // 
             // IntValueLabel
             // 
             this.IntValueLabel.AutoSize = true;
-            this.IntValueLabel.Location = new System.Drawing.Point(292, 17);
-            this.IntValueLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.IntValueLabel.Location = new System.Drawing.Point(389, 21);
             this.IntValueLabel.Name = "IntValueLabel";
-            this.IntValueLabel.Size = new System.Drawing.Size(54, 13);
+            this.IntValueLabel.Size = new System.Drawing.Size(62, 16);
             this.IntValueLabel.TabIndex = 5;
             this.IntValueLabel.Text = "Int value: ";
             // 
             // ChooseValueLabel
             // 
             this.ChooseValueLabel.AutoSize = true;
-            this.ChooseValueLabel.Location = new System.Drawing.Point(155, 17);
-            this.ChooseValueLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ChooseValueLabel.Location = new System.Drawing.Point(207, 21);
             this.ChooseValueLabel.Name = "ChooseValueLabel";
-            this.ChooseValueLabel.Size = new System.Drawing.Size(75, 13);
+            this.ChooseValueLabel.Size = new System.Drawing.Size(93, 16);
             this.ChooseValueLabel.TabIndex = 4;
             this.ChooseValueLabel.Text = "Choose value:";
             // 
             // ChooseEnumarationLabel
             // 
             this.ChooseEnumarationLabel.AutoSize = true;
-            this.ChooseEnumarationLabel.Location = new System.Drawing.Point(2, 17);
-            this.ChooseEnumarationLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ChooseEnumarationLabel.Location = new System.Drawing.Point(3, 21);
             this.ChooseEnumarationLabel.Name = "ChooseEnumarationLabel";
-            this.ChooseEnumarationLabel.Size = new System.Drawing.Size(107, 13);
+            this.ChooseEnumarationLabel.Size = new System.Drawing.Size(134, 16);
             this.ChooseEnumarationLabel.TabIndex = 3;
             this.ChooseEnumarationLabel.Text = "Choose enumaration:";
             // 
             // IntValueTextBox
             // 
-            this.IntValueTextBox.Location = new System.Drawing.Point(295, 32);
-            this.IntValueTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.IntValueTextBox.Location = new System.Drawing.Point(393, 39);
+            this.IntValueTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.IntValueTextBox.Name = "IntValueTextBox";
-            this.IntValueTextBox.Size = new System.Drawing.Size(76, 20);
+            this.IntValueTextBox.Size = new System.Drawing.Size(100, 22);
             this.IntValueTextBox.TabIndex = 2;
             // 
             // ChooseValueBox
             // 
             this.ChooseValueBox.FormattingEnabled = true;
-            this.ChooseValueBox.Location = new System.Drawing.Point(158, 32);
-            this.ChooseValueBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ChooseValueBox.ItemHeight = 16;
+            this.ChooseValueBox.Location = new System.Drawing.Point(211, 39);
+            this.ChooseValueBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChooseValueBox.Name = "ChooseValueBox";
-            this.ChooseValueBox.Size = new System.Drawing.Size(124, 147);
+            this.ChooseValueBox.Size = new System.Drawing.Size(164, 180);
             this.ChooseValueBox.TabIndex = 1;
             this.ChooseValueBox.SelectedIndexChanged += new System.EventHandler(this.ChooseValueBox_SelectedIndexChanged);
             // 
             // ChooseEnumerationBox
             // 
             this.ChooseEnumerationBox.FormattingEnabled = true;
+            this.ChooseEnumerationBox.ItemHeight = 16;
             this.ChooseEnumerationBox.Items.AddRange(new object[] {
             "Colors",
             "EducationForm",
@@ -207,66 +210,72 @@
             "Season",
             "SmartphoneManufactures",
             "Weekday"});
-            this.ChooseEnumerationBox.Location = new System.Drawing.Point(4, 32);
-            this.ChooseEnumerationBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ChooseEnumerationBox.Location = new System.Drawing.Point(5, 39);
+            this.ChooseEnumerationBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChooseEnumerationBox.Name = "ChooseEnumerationBox";
-            this.ChooseEnumerationBox.Size = new System.Drawing.Size(116, 147);
+            this.ChooseEnumerationBox.Size = new System.Drawing.Size(153, 180);
             this.ChooseEnumerationBox.TabIndex = 0;
             this.ChooseEnumerationBox.SelectedIndexChanged += new System.EventHandler(this.ChooseEnumerationBox_SelectedIndexChanged);
             // 
             // SeasonGroupBox
             // 
+            this.SeasonGroupBox.Controls.Add(this.SeasonComboBox);
             this.SeasonGroupBox.Controls.Add(this.GoSeasonButton);
-            this.SeasonGroupBox.Controls.Add(this.SeasonTextBox);
             this.SeasonGroupBox.Controls.Add(this.ChooseSeasonLabel);
-            this.SeasonGroupBox.Location = new System.Drawing.Point(289, 198);
+            this.SeasonGroupBox.Location = new System.Drawing.Point(385, 244);
+            this.SeasonGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.SeasonGroupBox.Name = "SeasonGroupBox";
-            this.SeasonGroupBox.Size = new System.Drawing.Size(303, 142);
+            this.SeasonGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.SeasonGroupBox.Size = new System.Drawing.Size(404, 175);
             this.SeasonGroupBox.TabIndex = 4;
             this.SeasonGroupBox.TabStop = false;
             this.SeasonGroupBox.Text = "Season Handle";
             // 
-            // ChooseSeasonLabel
+            // SeasonComboBox
             // 
-            this.ChooseSeasonLabel.AutoSize = true;
-            this.ChooseSeasonLabel.Location = new System.Drawing.Point(8, 29);
-            this.ChooseSeasonLabel.Name = "ChooseSeasonLabel";
-            this.ChooseSeasonLabel.Size = new System.Drawing.Size(83, 13);
-            this.ChooseSeasonLabel.TabIndex = 0;
-            this.ChooseSeasonLabel.Text = "Choose season:";
-            // 
-            // SeasonTextBox
-            // 
-            this.SeasonTextBox.Location = new System.Drawing.Point(11, 47);
-            this.SeasonTextBox.Name = "SeasonTextBox";
-            this.SeasonTextBox.Size = new System.Drawing.Size(100, 20);
-            this.SeasonTextBox.TabIndex = 1;
+            this.SeasonComboBox.FormattingEnabled = true;
+            this.SeasonComboBox.Location = new System.Drawing.Point(10, 55);
+            this.SeasonComboBox.Name = "SeasonComboBox";
+            this.SeasonComboBox.Size = new System.Drawing.Size(121, 24);
+            this.SeasonComboBox.TabIndex = 3;
             // 
             // GoSeasonButton
             // 
-            this.GoSeasonButton.Location = new System.Drawing.Point(117, 45);
+            this.GoSeasonButton.Location = new System.Drawing.Point(156, 55);
+            this.GoSeasonButton.Margin = new System.Windows.Forms.Padding(4);
             this.GoSeasonButton.Name = "GoSeasonButton";
-            this.GoSeasonButton.Size = new System.Drawing.Size(75, 23);
+            this.GoSeasonButton.Size = new System.Drawing.Size(100, 28);
             this.GoSeasonButton.TabIndex = 2;
             this.GoSeasonButton.Text = "Go!";
             this.GoSeasonButton.UseVisualStyleBackColor = true;
+            this.GoSeasonButton.Click += new System.EventHandler(this.GoSeasonButton_Click);
+            // 
+            // ChooseSeasonLabel
+            // 
+            this.ChooseSeasonLabel.AutoSize = true;
+            this.ChooseSeasonLabel.Location = new System.Drawing.Point(11, 36);
+            this.ChooseSeasonLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ChooseSeasonLabel.Name = "ChooseSeasonLabel";
+            this.ChooseSeasonLabel.Size = new System.Drawing.Size(105, 16);
+            this.ChooseSeasonLabel.TabIndex = 0;
+            this.ChooseSeasonLabel.Text = "Choose season:";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.EnumsTabPage.ResumeLayout(false);
             this.EnumsTabPage.PerformLayout();
-            this.WeekdayParsingBox.ResumeLayout(false);
-            this.WeekdayParsingBox.PerformLayout();
-            this.EnumerationBox.ResumeLayout(false);
-            this.EnumerationBox.PerformLayout();
+            this.WeekdayParsingGroupBox.ResumeLayout(false);
+            this.WeekdayParsingGroupBox.PerformLayout();
+            this.EnumerationGroupBox.ResumeLayout(false);
+            this.EnumerationGroupBox.PerformLayout();
             this.SeasonGroupBox.ResumeLayout(false);
             this.SeasonGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -277,11 +286,11 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage EnumsTabPage;
-        private System.Windows.Forms.GroupBox EnumerationBox;
+        private System.Windows.Forms.GroupBox EnumerationGroupBox;
         private System.Windows.Forms.ListBox ChooseValueBox;
         private System.Windows.Forms.ListBox ChooseEnumerationBox;
         private System.Windows.Forms.TextBox IntValueTextBox;
-        private System.Windows.Forms.GroupBox WeekdayParsingBox;
+        private System.Windows.Forms.GroupBox WeekdayParsingGroupBox;
         private System.Windows.Forms.Label ChooseValueLabel;
         private System.Windows.Forms.Label ChooseEnumarationLabel;
         private System.Windows.Forms.Label IntValueLabel;
@@ -290,9 +299,9 @@
         private System.Windows.Forms.Label TypeValueForParsingLabel;
         private System.Windows.Forms.Button ParseButton;
         private System.Windows.Forms.GroupBox SeasonGroupBox;
-        private System.Windows.Forms.TextBox SeasonTextBox;
         private System.Windows.Forms.Label ChooseSeasonLabel;
         private System.Windows.Forms.Button GoSeasonButton;
+        private System.Windows.Forms.ComboBox SeasonComboBox;
     }
 }
 

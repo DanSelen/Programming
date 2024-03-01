@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace ProjectProgramming
 {
@@ -20,6 +21,9 @@ namespace ProjectProgramming
 
             IntValueTextBox.ReadOnly = true;
             //Делаем IntValueBox только для чтения, без возможности вписывать данные
+
+            object[] SeasonValuesArray = Enum.GetValues(typeof(Season)).Cast<object>().ToArray();
+            SeasonComboBox.Items.AddRange(SeasonValuesArray);
         }
 
         private void ChooseEnumerationBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,6 +85,34 @@ namespace ProjectProgramming
             value = default;
             return false;
         }
-    }
 
+        private void GoSeasonButton_Click(object sender, EventArgs e)
+        {
+            if (SeasonComboBox.SelectedItem == null)
+            {
+                SeasonComboBox.BackColor = System.Drawing.Color.LightPink; return;
+            }
+            SeasonComboBox.BackColor = System.Drawing.Color.White;
+            switch (SeasonComboBox.SelectedItem)
+            {
+                case Season.Summer:
+                    MessageBox.Show("Ура, солнце");
+                    break;
+                case Season.Autumn:
+                    SetBackColor(SeasonGroupBox.BackColor = ColorTranslator.FromHtml("#e29c45")); break;
+                case Season.Winter:
+                    MessageBox.Show("БРР, Холодно");
+                    break;
+                case Season.Spring:
+                    SetBackColor(SeasonGroupBox.BackColor = ColorTranslator.FromHtml("#559c45")); break;
+            }
+        }
+        private void SetBackColor(System.Drawing.Color color)
+        {
+            EnumerationGroupBox.BackColor = color;
+            WeekdayParsingGroupBox.BackColor = color;
+            SeasonComboBox.BackColor = color;
+            this.BackColor = color;
+        }
+    }
 }
