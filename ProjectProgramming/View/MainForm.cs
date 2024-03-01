@@ -53,7 +53,34 @@ namespace ProjectProgramming
         private void ChooseValueBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             IntValueTextBox.Clear();
-            IntValueTextBox.Text += ChooseValueBox.SelectedIndex + 1;
+            IntValueTextBox.Text += ChooseValueBox.SelectedIndex;
+        }
+
+        private void ParseButton_Click(object sender, EventArgs e)
+        {
+            string ParseTextBoxItem = ParseTextBox.Text;
+            if (int.TryParse(ParseTextBoxItem, out _))
+            {
+                MessageBox.Show("Ошибка! Введенные данные не являются текстом");
+            }
+            else if (TryGetEnumValue<Weekday>(ParseTextBoxItem, out Weekday value))
+            {
+                WeekdayParsingLabel.Text = $"Это день недели ({value} = {(int)value})";
+            }
+            else
+            {
+                WeekdayParsingLabel.Text = $"Это не день недели";
+            }
+        }
+        static public bool TryGetEnumValue<T>(string itemName, out T value) where T : struct
+        {
+            if (Enum.TryParse<T>(itemName, true, out value))
+            {
+                return true;
+            }
+            value = default;
+            return false;
         }
     }
+
 }
