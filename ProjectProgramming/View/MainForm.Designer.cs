@@ -42,10 +42,15 @@
             this.IntValueTextBox = new System.Windows.Forms.TextBox();
             this.ChooseValueBox = new System.Windows.Forms.ListBox();
             this.ChooseEnumerationBox = new System.Windows.Forms.ListBox();
+            this.SeasonGroupBox = new System.Windows.Forms.GroupBox();
+            this.ChooseSeasonLabel = new System.Windows.Forms.Label();
+            this.SeasonTextBox = new System.Windows.Forms.TextBox();
+            this.GoSeasonButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.EnumsTabPage.SuspendLayout();
             this.WeekdayParsingBox.SuspendLayout();
             this.EnumerationBox.SuspendLayout();
+            this.SeasonGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -63,6 +68,7 @@
             // 
             this.EnumsTabPage.Controls.Add(this.WeekdayParsingBox);
             this.EnumsTabPage.Controls.Add(this.EnumerationBox);
+            this.EnumsTabPage.Controls.Add(this.SeasonGroupBox);
             this.EnumsTabPage.Location = new System.Drawing.Point(4, 22);
             this.EnumsTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.EnumsTabPage.Name = "EnumsTabPage";
@@ -208,6 +214,43 @@
             this.ChooseEnumerationBox.TabIndex = 0;
             this.ChooseEnumerationBox.SelectedIndexChanged += new System.EventHandler(this.ChooseEnumerationBox_SelectedIndexChanged);
             // 
+            // SeasonGroupBox
+            // 
+            this.SeasonGroupBox.Controls.Add(this.GoSeasonButton);
+            this.SeasonGroupBox.Controls.Add(this.SeasonTextBox);
+            this.SeasonGroupBox.Controls.Add(this.ChooseSeasonLabel);
+            this.SeasonGroupBox.Location = new System.Drawing.Point(289, 198);
+            this.SeasonGroupBox.Name = "SeasonGroupBox";
+            this.SeasonGroupBox.Size = new System.Drawing.Size(303, 142);
+            this.SeasonGroupBox.TabIndex = 4;
+            this.SeasonGroupBox.TabStop = false;
+            this.SeasonGroupBox.Text = "Season Handle";
+            // 
+            // ChooseSeasonLabel
+            // 
+            this.ChooseSeasonLabel.AutoSize = true;
+            this.ChooseSeasonLabel.Location = new System.Drawing.Point(8, 29);
+            this.ChooseSeasonLabel.Name = "ChooseSeasonLabel";
+            this.ChooseSeasonLabel.Size = new System.Drawing.Size(83, 13);
+            this.ChooseSeasonLabel.TabIndex = 0;
+            this.ChooseSeasonLabel.Text = "Choose season:";
+            // 
+            // SeasonTextBox
+            // 
+            this.SeasonTextBox.Location = new System.Drawing.Point(11, 47);
+            this.SeasonTextBox.Name = "SeasonTextBox";
+            this.SeasonTextBox.Size = new System.Drawing.Size(100, 20);
+            this.SeasonTextBox.TabIndex = 1;
+            // 
+            // GoSeasonButton
+            // 
+            this.GoSeasonButton.Location = new System.Drawing.Point(117, 45);
+            this.GoSeasonButton.Name = "GoSeasonButton";
+            this.GoSeasonButton.Size = new System.Drawing.Size(75, 23);
+            this.GoSeasonButton.TabIndex = 2;
+            this.GoSeasonButton.Text = "Go!";
+            this.GoSeasonButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,6 +267,8 @@
             this.WeekdayParsingBox.PerformLayout();
             this.EnumerationBox.ResumeLayout(false);
             this.EnumerationBox.PerformLayout();
+            this.SeasonGroupBox.ResumeLayout(false);
+            this.SeasonGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -244,6 +289,10 @@
         private System.Windows.Forms.Label WeekdayParsingLabel;
         private System.Windows.Forms.Label TypeValueForParsingLabel;
         private System.Windows.Forms.Button ParseButton;
+        private System.Windows.Forms.GroupBox SeasonGroupBox;
+        private System.Windows.Forms.TextBox SeasonTextBox;
+        private System.Windows.Forms.Label ChooseSeasonLabel;
+        private System.Windows.Forms.Button GoSeasonButton;
     }
 }
 
