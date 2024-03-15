@@ -13,6 +13,7 @@ namespace ProjectProgramming
 {
     public partial class MainForm : Form
     {
+        private Rectangle[] _rectangles = { };
         public MainForm()
         {
             InitializeComponent();
