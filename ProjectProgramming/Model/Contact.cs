@@ -23,6 +23,8 @@ class Contact
         {
             if (_number.Length != 11)
                 throw new ArgumentException("Номер телефона должен содержать 11 цифр");
+            else 
+                _number = value;
         }
         get
         {

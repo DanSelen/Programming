@@ -7,19 +7,21 @@ class Movie
     private int _year;
     private int _rating;
     private string _genre;
-    private int Year
+    public int Year
     {
         set
         {
             if (value < 1900)
                 throw new ArgumentException("Фильм не может быть старее 1900 года");
+            else 
+                _year = value;
         }
         get
         {
             return Year;
         }
     }
-    private string Genre
+    public string Genre
     {
         set
         {
@@ -30,19 +32,21 @@ class Movie
             return _genre;
         }
     }
-    private int Rating
+    public int Rating
     {
         set
         {
             if (value < 0 & value > 10)
                 throw new ArgumentException("Рейтинг должен быть в диапазоне от 0 до 10");
+            else 
+                _rating = value;
         }
         get
         {
             return _rating;
         }
     }
-    private int Duration
+    public int Duration
     {
         set
         {
@@ -53,7 +57,7 @@ class Movie
             return _duration;
         }
     }
-    private string Name
+    public string Name
     {
         set
         {
