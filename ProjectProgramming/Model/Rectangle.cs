@@ -1,10 +1,12 @@
 using System;
+using System.Drawing;
 
 class Rectangle
 {
     private double _length;
     private double _width;
-    private double _color;
+
+    public Color Color { get; set; }
 
     public double Length
     {
@@ -34,18 +36,10 @@ class Rectangle
             return _width;
         }
     }
-    public double Color
+    public Rectangle ()
     {
-        set
-        {
-            if (value > 0)
-                throw new ArgumentException("Значение должно быть больше 0");
-            else 
-                _color = value;
-        }
-        get
-        {
-            return _color;
-        }
+        Length = 1;
+        Width = 1;
+        Color = Color.Gray;
     }
 }

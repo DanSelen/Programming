@@ -43,4 +43,11 @@ class Discipline
         Grade = grade;
         Semester = semester;
     }
+
+    public Discipline()
+    {
+        DisciplineName = "";
+        Grade = 2;
+        Semester = 1;
+    }
 }

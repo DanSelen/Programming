@@ -60,4 +60,11 @@ class Song
         Album = album;
         During = during;
     }
+    public Song()
+    {
+        Name = "";
+        Artist = "";
+        Album = "";
+        During = 1;
+    }
 }

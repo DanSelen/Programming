@@ -1,4 +1,5 @@
 using System;
+using System.Xml.Linq;
 
 class Movie
 {
@@ -75,5 +76,14 @@ class Movie
         Year = year;
         Rating = rating;
         Genre = genre;
+    }
+
+    public Movie ()
+    {
+        Name = "";
+        Duration = 0;
+        Year = 0;
+        Rating = 0;
+        Genre = "";
     }
 }

@@ -16,4 +16,11 @@ class Flight
         ArrivalPoint = arrivalPoint;
         FlightTime = flightTime;
     }
+
+    public Flight()
+    {
+        DeparturePoint = "";
+        ArrivalPoint = "";
+        FlightTime = 1;
+    }
 }

@@ -49,9 +49,15 @@ class Time
     }
 
     public Time(int hours, int minutes, int seconds)
-        {
+    {
             Hours = hours;
             Minutes = minutes;
             Seconds = seconds;
-        }
+    }
+    public Time()
+    {
+        Hours = 1;
+        Minutes = 1;
+        Seconds = 1;
+    }
 }
