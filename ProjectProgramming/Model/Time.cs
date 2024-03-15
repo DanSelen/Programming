@@ -4,7 +4,7 @@ class Time
     {
         set
         {
-            if (value >= 0 value<24)
+            if (value >= 0 & value<24)
                 _hours = value;
         }
         get
@@ -12,7 +12,7 @@ class Time
             return _hours;
         }
     }
-    private int _minutes;
+    private int _minutes
     {
         set
         {
