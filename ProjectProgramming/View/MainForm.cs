@@ -43,8 +43,8 @@ namespace ProjectProgramming
                 // Генерация случайной длины и ширины прямоугольника
                 double length = random.Next(1, 20);
                 double width = random.Next(1, 20);
-                int colorIndex = random.Next(0, _collorsArray.Length - 1);
-                _rectangles[i] = new Rectangle(length, width, _collorsArray[colorIndex]);
+                int colorRandomIndex = random.Next(0, _collorsArray.Length - 1);
+                _rectangles[i] = new Rectangle(length, width, _collorsArray[colorRandomIndex]);
                 _listboxRectangle[i] = ($"Rectangle {i + 1}");
             }
             RectanglesListBox.Items.AddRange(_listboxRectangle);
@@ -137,6 +137,14 @@ namespace ProjectProgramming
             WeekdayParsingGroupBox.BackColor = color;
             SeasonComboBox.BackColor = color;
             this.BackColor = color;
+        }
+
+        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _currentRectangles = _rectangles[RectanglesListBox.SelectedIndex];
+            LengthTextBox.Text = _currentRectangles.Length.ToString();
+            WidthTextBox.Text = _currentRectangles.Width.ToString();
+            ColorTextBox.Text = _currentRectangles.Color.ToString();
         }
     }
 }
