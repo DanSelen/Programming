@@ -48,7 +48,7 @@
             this.ChooseSeasonLabel = new System.Windows.Forms.Label();
             this.ClassesTabPage = new System.Windows.Forms.TabPage();
             this.rectanglesGroupBox = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.RectanglesListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -293,7 +293,7 @@
             this.rectanglesGroupBox.Controls.Add(this.label3);
             this.rectanglesGroupBox.Controls.Add(this.label2);
             this.rectanglesGroupBox.Controls.Add(this.label1);
-            this.rectanglesGroupBox.Controls.Add(this.listBox1);
+            this.rectanglesGroupBox.Controls.Add(this.RectanglesListBox);
             this.rectanglesGroupBox.Location = new System.Drawing.Point(8, 6);
             this.rectanglesGroupBox.Name = "rectanglesGroupBox";
             this.rectanglesGroupBox.Size = new System.Drawing.Size(776, 407);
@@ -301,14 +301,14 @@
             this.rectanglesGroupBox.TabStop = false;
             this.rectanglesGroupBox.Text = "Rectangles";
             // 
-            // listBox1
+            // RectanglesListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(24, 43);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(183, 276);
-            this.listBox1.TabIndex = 0;
+            this.RectanglesListBox.FormattingEnabled = true;
+            this.RectanglesListBox.ItemHeight = 16;
+            this.RectanglesListBox.Location = new System.Drawing.Point(24, 43);
+            this.RectanglesListBox.Name = "RectanglesListBox";
+            this.RectanglesListBox.Size = new System.Drawing.Size(183, 276);
+            this.RectanglesListBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -421,7 +421,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox RectanglesListBox;
     }
 }
 

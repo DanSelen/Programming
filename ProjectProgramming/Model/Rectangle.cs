@@ -5,14 +5,24 @@ class Rectangle
 {
     private double _length;
     private double _width;
-
-    public Color Color { get; set; }
-
+    private string _color;
+    
+    public string Color
+    {
+        set
+        {
+            _color = value;
+        }
+        get
+        {
+            return _color;
+        }
+    }
     public double Length
     {
         set
         {
-            if (value > 0)
+            if (value < 0)
                 throw new ArgumentException("Значение должно быть больше 0");
             else
                 _length = value;
@@ -26,7 +36,7 @@ class Rectangle
     {
         set
         {
-            if (value > 0)
+            if (value < 0)
                 throw new ArgumentException("Значение должно быть больше 0");
             else
                 _width = value;
@@ -40,6 +50,13 @@ class Rectangle
     {
         Length = 1;
         Width = 1;
-        Color = Color.Gray;
+        Color = "";
+
+    }
+    public Rectangle (double length, double width, string color)
+    {
+        Length = length;
+        Width = width;
+        Color = color;
     }
 }
