@@ -15,11 +15,17 @@ namespace ProjectProgramming
 {
     public partial class MainForm : Form
     {
+        //Модуль Rectangles
         private Rectangle[] _rectangles = new Rectangle[5];
         private Rectangle _currentRectangles;
         private string[] _listboxRectangle = new string[5];
         Random random = new Random();
         private string[] _collorsArray = { "Red", "Blue", "Green", "Yellow", "Black", "White", "Purple" } ;
+
+        //Модуль Movies
+        private Movie[] _movies = new Movie[5];
+        private Movie _currentMovie;
+        private string[] _listboxMovies = new string[5];
 
 
         public MainForm()
@@ -38,6 +44,22 @@ namespace ProjectProgramming
             SeasonComboBox.Items.AddRange(SeasonValuesArray);
 
             Random random = new Random();
+            //Модуль Movie
+            for (int i = 0; i<_listboxMovies.Length; i++)
+            {
+                // Генерируем случайные значения для каждого параметра фильма
+                string name = $"Movie {i + 1}";
+                int duration = random.Next(60, 180); // Продолжительность в минутах (от 60 до 180)
+                int year = random.Next(1990, 2023); // Год выпуска (от 1990 до 2022)
+                int rating = random.Next(1, 11); // Рейтинг (от 1 до 10)
+                string[] genres = { "Action", "Comedy", "Drama", "Horror", "Sci-Fi", "Thriller" };
+                string genre = genres[random.Next(genres.Length)]; // Случайный жанр из списка
+                _movies[i] = new Movie(name, duration, year, rating, genre);
+                _listboxMovies[i] = ($"Movie {i + 1}");
+            }
+            MoviesListBox.Items.AddRange(_listboxMovies);
+
+            //Модуль Rectangles
             for (int i = 0; i < _listboxRectangle.Length; i++)
             {
                 // Генерация случайной длины и ширины прямоугольника
@@ -109,7 +131,6 @@ namespace ProjectProgramming
             value = default;
             return false;
         }
-
         private void GoSeasonButton_Click(object sender, EventArgs e)
         {
             if (SeasonComboBox.SelectedItem == null)
@@ -139,12 +160,28 @@ namespace ProjectProgramming
             this.BackColor = color;
         }
 
+
+
+
         private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _currentRectangles = _rectangles[RectanglesListBox.SelectedIndex];
-            LengthTextBox.Text = _currentRectangles.Length.ToString();
+            if (RectanglesListBox.SelectedIndex >= 0)
+                _currentRectangles = _rectangles[RectanglesListBox.SelectedIndex];
+                if (_currentRectangles != null)
+                {
+                LengthTextBox.Text = _currentRectangles.Length.ToString();
+                WidthTextBox.Text = _currentRectangles.Width.ToString();
+                ColorTextBox.Text = _currentRectangles.Color.ToString();
+                }
+                else
+                {
+                    // Обработка ситуации, когда _currentRectangles равен null
+                    // Можно очистить текстовые поля или установить сообщение об ошибке
+                }
+            /*LengthTextBox.Text = _currentRectangles.Length.ToString();
             WidthTextBox.Text = _currentRectangles.Width.ToString();
             ColorTextBox.Text = _currentRectangles.Color.ToString();
+            */
         }
 
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
@@ -243,6 +280,112 @@ namespace ProjectProgramming
             //MessageBox.Show(""+ FindRectangleWithMaxWidth(_rectangles));
             RectanglesListBox.SelectedIndex = FindRectangleWithMaxWidth(_rectangles);
 
+        }
+
+        private void MovieListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MoviesListBox.SelectedIndex >= 0)
+                _currentMovie = _movies[MoviesListBox.SelectedIndex];
+                if (_currentMovie != null)
+                {
+                    movieNameTextBox.Text = _currentMovie.Name.ToString();
+                    movieRatingTextBox.Text = _currentMovie.Rating.ToString();
+                    movieDurationTextBox.Text = _currentMovie.Duration.ToString();
+                    movieGenreTextBox.Text = _currentMovie.Genre.ToString();
+                    movieYearTextBox.Text = _currentMovie.Year.ToString(); 
+                }
+        }
+
+        private void movieFindButton_Click(object sender, EventArgs e)
+        {
+            MoviesListBox.SelectedItem =FindMovieWithMaxRating(_movies);
+            MoviesListBox.SelectedIndex = FindMovieWithMaxRating(_movies);
+        }
+        private int FindMovieWithMaxRating(Movie[] movies)
+        {
+            if (movies == null || movies.Length == 0)
+                throw new ArgumentException("Массив фильмов не может быть пустым.");
+
+            int maxIndex = 0;
+            int maxRating = movies[0].Rating;
+
+            for (int i = 1; i < movies.Length; i++)
+            {
+                if (movies[i].Rating > maxRating)
+                {
+                    maxRating = movies[i].Rating;
+                    maxIndex = i;
+                }
+            }
+
+            return maxIndex;
+        }
+
+        private void movieYearTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput(movieYearTextBox);
+            if (_currentMovie != null)
+            {
+                try
+                {
+                    _currentMovie.Year = Convert.ToInt32(movieYearTextBox.Text);
+                }
+                catch (FormatException)
+                {
+                    // обработаем это исключение здесь или оставим без обработки
+                    // обработка уже произведена в методе ValidateInput
+                }
+            }
+        }
+
+        private void movieDurationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput(movieDurationTextBox);
+            if (_currentMovie != null)
+            {
+                try
+                {
+                    _currentMovie.Duration = Convert.ToInt32(movieDurationTextBox.Text);
+                }
+                catch (FormatException)
+                {
+                    // обработаем это исключение здесь или оставим без обработки
+                    // обработка уже произведена в методе ValidateInput
+                }
+            }
+        }
+
+        private void movieRatingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput(movieRatingTextBox);
+            if (_currentMovie != null)
+            {
+                try
+                {
+                    _currentMovie.Rating = Convert.ToInt32(movieRatingTextBox.Text);
+                }
+                catch (FormatException)
+                {
+                    // обработаем это исключение здесь или оставим без обработки
+                    // обработка уже произведена в методе ValidateInput
+                }
+            }
+        }
+
+        private void movieNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            movieNameTextBox.BackColor = Color.White;
+            _currentMovie.Name = Convert.ToString(movieNameTextBox.Text);
+            if (movieNameTextBox.Text == "")
+                movieNameTextBox.BackColor = Color.LightPink;
+        }
+
+        private void movieGenreTextBox_TextChanged(object sender, EventArgs e)
+        {
+            movieGenreTextBox.BackColor = Color.White;
+            _currentMovie.Genre = Convert.ToString(movieGenreTextBox.Text);
+            if (movieGenreTextBox.Text == "")
+                movieGenreTextBox.BackColor = Color.LightPink;
         }
     }
 }

@@ -12,8 +12,8 @@ class Movie
     {
         set
         {
-            if (value < 1900)
-                throw new ArgumentException("Фильм не может быть старее 1900 года");
+            if (value < 0)
+                throw new ArgumentException("Фильм не может быть меньше 0");
             else 
                 _year = value;
         }
