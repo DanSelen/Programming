@@ -293,7 +293,7 @@
             this.rectanglesGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rectanglesGroupBox.Name = "rectanglesGroupBox";
             this.rectanglesGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.rectanglesGroupBox.Size = new System.Drawing.Size(582, 331);
+            this.rectanglesGroupBox.Size = new System.Drawing.Size(289, 328);
             this.rectanglesGroupBox.TabIndex = 0;
             this.rectanglesGroupBox.TabStop = false;
             this.rectanglesGroupBox.Text = "Rectangles";
@@ -307,6 +307,7 @@
             this.RectanglesFindButton.TabIndex = 7;
             this.RectanglesFindButton.Text = "Find";
             this.RectanglesFindButton.UseVisualStyleBackColor = true;
+            this.RectanglesFindButton.Click += new System.EventHandler(this.RectanglesFindButton_Click);
             // 
             // ColorTextBox
             // 

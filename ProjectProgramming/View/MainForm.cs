@@ -217,5 +217,32 @@ namespace ProjectProgramming
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        {
+            if (rectangles == null || rectangles.Length == 0)
+                throw new ArgumentException("Массив прямоугольников не может быть пустым.");
+
+            int maxIndex = 0;
+            double maxWidth = rectangles[0].Width;
+
+            for (int i = 1; i < rectangles.Length; i++)
+            {
+                if (rectangles[i].Width > maxWidth)
+                {
+                    maxWidth = rectangles[i].Width;
+                    maxIndex = i;
+                }
+            }
+
+            return maxIndex;
+        }
+
+        private void RectanglesFindButton_Click(object sender, EventArgs e)
+        {
+            RectanglesListBox.SelectedItem = FindRectangleWithMaxWidth(_rectangles);
+            //MessageBox.Show(""+ FindRectangleWithMaxWidth(_rectangles));
+            RectanglesListBox.SelectedIndex = FindRectangleWithMaxWidth(_rectangles);
+
+        }
     }
 }
