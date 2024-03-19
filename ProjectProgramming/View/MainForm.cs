@@ -149,7 +149,17 @@ namespace ProjectProgramming
 
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
-            
+            _currentRectangles.Length = Convert.ToDouble(LengthTextBox.Text);
+        }
+
+        private void WidthTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _currentRectangles.Width = Convert.ToDouble(WidthTextBox.Text);
+        }
+
+        private void ColorTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _currentRectangles.Color = Convert.ToString(ColorTextBox.Text);
         }
     }
 }
