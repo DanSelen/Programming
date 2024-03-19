@@ -149,17 +149,73 @@ namespace ProjectProgramming
 
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
-            _currentRectangles.Length = Convert.ToDouble(LengthTextBox.Text);
+            ValidateInput(LengthTextBox);
+            if (_currentRectangles != null)
+            {
+                try
+                {
+                    _currentRectangles.Length = Convert.ToDouble(LengthTextBox.Text);
+                }
+                catch (FormatException)
+                {
+                    // обработаем это исключение здесь или оставим без обработки
+                    // обработка уже произведена в методе ValidateInput
+                }
+            }
         }
 
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
-            _currentRectangles.Width = Convert.ToDouble(WidthTextBox.Text);
+            ValidateInput(WidthTextBox);
+            if (_currentRectangles != null)
+            {
+                try
+                {
+                    _currentRectangles.Width = Convert.ToDouble(WidthTextBox.Text);
+                }
+                catch (FormatException)
+                {
+                    // обработаем это исключение здесь или оставим без обработки
+                    // обработка уже произведена в методе ValidateInput
+                }
+            }
         }
 
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
             _currentRectangles.Color = Convert.ToString(ColorTextBox.Text);
+        }
+        private void ValidateInput(TextBox textBox)
+        {
+            try
+            {
+                // Пробуем конвертировать текст в число
+                double value = double.Parse(textBox.Text);
+
+                // Проверяем, что число входит в допустимый диапазон
+                if (value < 0 ) 
+                {
+                    throw new ArgumentException("Число меньше 0");
+                }
+
+                // Если ошибок нет, устанавливаем белый цвет фона
+                textBox.BackColor = Color.White;
+            }
+            catch (FormatException)
+            {
+                // Если введенное значение не может быть преобразовано в число,
+                // подсвечиваем фон текстового поля красным цветом
+                textBox.BackColor = Color.LightPink;
+            }
+            catch (ArgumentException ex)
+            {
+                // Если число выходит за допустимый диапазон,
+                // подсвечиваем фон текстового поля красным цветом
+                textBox.BackColor = Color.LightPink;
+
+                // Выводим сообщение об ошибке
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
