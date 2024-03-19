@@ -19,7 +19,7 @@ class Movie
         }
         get
         {
-            return Year;
+            return _year;
         }
     }
     public string Genre
