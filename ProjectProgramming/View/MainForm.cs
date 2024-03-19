@@ -146,5 +146,10 @@ namespace ProjectProgramming
             WidthTextBox.Text = _currentRectangles.Width.ToString();
             ColorTextBox.Text = _currentRectangles.Color.ToString();
         }
+
+        private void LengthTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

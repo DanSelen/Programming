@@ -344,6 +344,7 @@
             this.LengthTextBox.Name = "LengthTextBox";
             this.LengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.LengthTextBox.TabIndex = 4;
+            this.LengthTextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
             // WidthTextBox
             // 
