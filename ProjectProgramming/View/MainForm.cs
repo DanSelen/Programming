@@ -226,7 +226,7 @@ namespace ProjectProgramming
             {
                 try
                 {
-                    _currentRectangles.Color = Convert.ToString(WidthTextBox.Text);
+                    _currentRectangles.Color = Convert.ToString(ColorTextBox.Text);
                 }
                 catch
                 {
