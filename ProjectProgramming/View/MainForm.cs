@@ -48,14 +48,15 @@ namespace ProjectProgramming
             for (int i = 0; i<_listboxMovies.Length; i++)
             {
                 // Генерируем случайные значения для каждого параметра фильма
-                string name = $"Movie {i + 1}";
+                _listboxMovies[i] = ($"Movie {i + 1}");
+                string name = _listboxMovies[i];
                 int duration = random.Next(60, 180); // Продолжительность в минутах (от 60 до 180)
                 int year = random.Next(1990, 2023); // Год выпуска (от 1990 до 2022)
                 int rating = random.Next(1, 11); // Рейтинг (от 1 до 10)
                 string[] genres = { "Action", "Comedy", "Drama", "Horror", "Sci-Fi", "Thriller" };
                 string genre = genres[random.Next(genres.Length)]; // Случайный жанр из списка
                 _movies[i] = new Movie(name, duration, year, rating, genre);
-                _listboxMovies[i] = ($"Movie {i + 1}");
+                
             }
             MoviesListBox.Items.AddRange(_listboxMovies);
 
@@ -427,7 +428,7 @@ namespace ProjectProgramming
             {
                 try
                 {
-                    _currentMovie.Name = Convert.ToString(WidthTextBox.Text);
+                    _currentMovie.Name = Convert.ToString(movieNameTextBox.Text);
                 }
                 catch
                 {
