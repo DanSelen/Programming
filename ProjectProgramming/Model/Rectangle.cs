@@ -23,7 +23,7 @@ class Rectangle
         set
         {
             if (value < 0)
-                throw new ArgumentException("Значение должно быть больше 0");
+                throw new ArgumentOutOfRangeException("Значение должно быть больше 0");
             else
                 _length = value;
         }

@@ -186,14 +186,14 @@ namespace ProjectProgramming
 
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
-            ValidateInput(LengthTextBox);
+            ValidateNumbInput(LengthTextBox);
             if (_currentRectangles != null)
             {
                 try
                 {
                     _currentRectangles.Length = Convert.ToDouble(LengthTextBox.Text);
                 }
-                catch (FormatException)
+                catch 
                 {
                     // обработаем это исключение здесь или оставим без обработки
                     // обработка уже произведена в методе ValidateInput
@@ -203,14 +203,14 @@ namespace ProjectProgramming
 
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
-            ValidateInput(WidthTextBox);
+            ValidateNumbInput(WidthTextBox);
             if (_currentRectangles != null)
             {
                 try
                 {
                     _currentRectangles.Width = Convert.ToDouble(WidthTextBox.Text);
                 }
-                catch (FormatException)
+                catch 
                 {
                     // обработаем это исключение здесь или оставим без обработки
                     // обработка уже произведена в методе ValidateInput
@@ -220,9 +220,21 @@ namespace ProjectProgramming
 
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
-            _currentRectangles.Color = Convert.ToString(ColorTextBox.Text);
+            ValidateInput(ColorTextBox);
+            if (_currentRectangles != null)
+            {
+                try
+                {
+                    _currentRectangles.Color = Convert.ToString(WidthTextBox.Text);
+                }
+                catch
+                {
+                    // обработаем это исключение здесь или оставим без обработки
+                    // обработка уже произведена в методе ValidateInput
+                }
+            }
         }
-        private void ValidateInput(TextBox textBox)
+        private void ValidateNumbInput(TextBox textBox)
         {
             try
             {
@@ -244,16 +256,48 @@ namespace ProjectProgramming
                 // подсвечиваем фон текстового поля красным цветом
                 textBox.BackColor = Color.LightPink;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 // Если число выходит за допустимый диапазон,
                 // подсвечиваем фон текстового поля красным цветом
                 textBox.BackColor = Color.LightPink;
 
                 // Выводим сообщение об ошибке
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void ValidateInput(TextBox textBox)
+        {
+            try
+            {
+                // Пробуем конвертировать текст в число
+                string value = Convert.ToString(textBox.Text);
+
+                // Проверяем, что число входит в допустимый диапазон
+                if (value.Length == 0)
+                {
+                    throw new ArgumentException("Поле являетсся пустым");
+                }
+
+                // Если ошибок нет, устанавливаем белый цвет фона
+                textBox.BackColor = Color.White;
+            }
+            catch (FormatException)
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+            catch (ArgumentException)
+            {
+                // Если число выходит за допустимый диапазон,
+                // подсвечиваем фон текстового поля красным цветом
+                textBox.BackColor = Color.LightPink;
+
+                // Выводим сообщение об ошибке
+                //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
         {
             if (rectangles == null || rectangles.Length == 0)
@@ -323,7 +367,7 @@ namespace ProjectProgramming
 
         private void movieYearTextBox_TextChanged(object sender, EventArgs e)
         {
-            ValidateInput(movieYearTextBox);
+            ValidateNumbInput(movieYearTextBox);
             if (_currentMovie != null)
             {
                 try
@@ -340,7 +384,7 @@ namespace ProjectProgramming
 
         private void movieDurationTextBox_TextChanged(object sender, EventArgs e)
         {
-            ValidateInput(movieDurationTextBox);
+            ValidateNumbInput(movieDurationTextBox);
             if (_currentMovie != null)
             {
                 try
@@ -357,12 +401,16 @@ namespace ProjectProgramming
 
         private void movieRatingTextBox_TextChanged(object sender, EventArgs e)
         {
-            ValidateInput(movieRatingTextBox);
+            ValidateNumbInput(movieRatingTextBox);
             if (_currentMovie != null)
             {
                 try
                 {
                     _currentMovie.Rating = Convert.ToInt32(movieRatingTextBox.Text);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    movieRatingTextBox.BackColor = Color.LightPink;
                 }
                 catch (FormatException)
                 {
@@ -374,18 +422,36 @@ namespace ProjectProgramming
 
         private void movieNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            movieNameTextBox.BackColor = Color.White;
-            _currentMovie.Name = Convert.ToString(movieNameTextBox.Text);
-            if (movieNameTextBox.Text == "")
-                movieNameTextBox.BackColor = Color.LightPink;
+            ValidateInput(movieNameTextBox);
+            if (_currentMovie != null)
+            {
+                try
+                {
+                    _currentMovie.Name = Convert.ToString(WidthTextBox.Text);
+                }
+                catch
+                {
+                    // обработаем это исключение здесь или оставим без обработки
+                    // обработка уже произведена в методе ValidateInput
+                }
+            }
         }
 
         private void movieGenreTextBox_TextChanged(object sender, EventArgs e)
         {
-            movieGenreTextBox.BackColor = Color.White;
-            _currentMovie.Genre = Convert.ToString(movieGenreTextBox.Text);
-            if (movieGenreTextBox.Text == "")
-                movieGenreTextBox.BackColor = Color.LightPink;
+            ValidateInput(movieGenreTextBox);
+            if (_currentMovie != null)
+            {
+                try
+                {
+                    _currentMovie.Genre = Convert.ToString(movieGenreTextBox.Text);
+                }
+                catch
+                {
+                    // обработаем это исключение здесь или оставим без обработки
+                    // обработка уже произведена в методе ValidateInput
+                }
+            }
         }
     }
 }

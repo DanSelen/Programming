@@ -37,8 +37,8 @@ class Movie
     {
         set
         {
-            if (value < 0 & value > 10)
-                throw new ArgumentException("Рейтинг должен быть в диапазоне от 0 до 10");
+            if (value < 0 || value > 10)
+                throw new ArgumentOutOfRangeException("Рейтинг должен быть в диапазоне от 0 до 10");
             else 
                 _rating = value;
         }
