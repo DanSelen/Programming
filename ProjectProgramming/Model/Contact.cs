@@ -11,7 +11,7 @@ class Contact
     {
         set
         {
-            AssertStringContainsOnlyLetters(value);
+            AssertStringContainsOnlyLetters(value, "Name");
             _name = value;
         }
         get
@@ -23,7 +23,7 @@ class Contact
     {
         set
         {
-            AssertStringContainsOnlyLetters(value);
+            AssertStringContainsOnlyLetters(value,"Surname");
             _surname = value;
         }
         get
@@ -31,13 +31,13 @@ class Contact
             return _surname;
         }
     }
-    private void AssertStringContainsOnlyLetters(string str) // Функция осуществляет проверку, что строка содержит символы только латинского алфавита
+    private void AssertStringContainsOnlyLetters(string str, string propertyName) // Функция осуществляет проверку, что строка содержит символы только латинского алфавита
     {
         foreach (char c in str)
         {
             if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
             {
-                throw new ArgumentException("String should contain only English alphabet characters.");
+                throw new ArgumentException($" {propertyName} should contain only English alphabet characters."); ;
             }
         }
     }
