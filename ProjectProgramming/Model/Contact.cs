@@ -3,6 +3,7 @@ using System;
 class Contact
 {
     private string _name;
+    private string _surname;
     private string _email;
     private string _number;
 
@@ -10,14 +11,37 @@ class Contact
     {
         set
         {
-            Name = value;
+            AssertStringContainsOnlyLetters(value);
+            _name = value;
         }
         get
         {
             return _name;
         }
     }
-    public string Number /// _number - это номер телефона без знака, начиная с 7
+    public string Surname
+    {
+        set
+        {
+            AssertStringContainsOnlyLetters(value);
+            _surname = value;
+        }
+        get
+        {
+            return _surname;
+        }
+    }
+    private void AssertStringContainsOnlyLetters(string str) // Функция осуществляет проверку, что строка содержит символы только латинского алфавита
+    {
+        foreach (char c in str)
+        {
+            if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
+            {
+                throw new ArgumentException("String should contain only English alphabet characters.");
+            }
+        }
+    }
+    public string Number // _number - это номер телефона без знака, начиная с 7
     {
         set
         {
@@ -46,14 +70,16 @@ class Contact
     public Contact()
     {
         Name = "";
+        Surname = "";
         Number = "";
         Email = "";
     }
 
 
-    public Contact(string name, string email, string number)
+    public Contact(string name, string surname, string email, string number)
     {
         Name = name;
+        Surname = surname;
         Number = number;
         Email = email;
     }
