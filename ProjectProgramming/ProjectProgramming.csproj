@@ -58,6 +58,7 @@
     <Compile Include="Model\SmartphoneManufacturers.cs" />
     <Compile Include="Model\Song.cs" />
     <Compile Include="Model\Time.cs" />
+    <Compile Include="Model\Validator.cs" />
     <Compile Include="Model\Weekday.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
