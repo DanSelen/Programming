@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectProgramming.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,7 +68,11 @@ namespace ProjectProgramming
                 double length = random.Next(1, 20);
                 double width = random.Next(1, 20);
                 int colorRandomIndex = random.Next(0, _collorsArray.Length - 1);
-                _rectangles[i] = new Rectangle(length, width, _collorsArray[colorRandomIndex]);
+                double x = random.Next(1,10);
+                double y = random.Next(1, 10);
+                Point2D coordinatesOfRectangle = new Point2D(x, y);
+
+                _rectangles[i] = new Rectangle(length, width,coordinatesOfRectangle,_collorsArray[colorRandomIndex]);
                 _listboxRectangle[i] = ($"Rectangle {i + 1}");
             }
             RectanglesListBox.Items.AddRange(_listboxRectangle);
@@ -173,6 +178,9 @@ namespace ProjectProgramming
                 LengthTextBox.Text = _currentRectangles.Length.ToString();
                 WidthTextBox.Text = _currentRectangles.Width.ToString();
                 ColorTextBox.Text = _currentRectangles.Color.ToString();
+                CenterXTextBox.Text = _currentRectangles.Center.X.ToString();
+                CenterYTextbox.Text = _currentRectangles.Center.Y.ToString();
+
                 }
                 else
                 {
@@ -461,6 +469,16 @@ namespace ProjectProgramming
                     // обработка уже произведена в методе ValidateInput
                 }
             }
+        }
+
+        private void CenterYTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true; // Отменяем нажатия клавиш
+        }
+
+        private void CenterXTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true; // Отменяем нажатия клавиш
         }
     }
 }

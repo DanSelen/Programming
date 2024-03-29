@@ -53,6 +53,7 @@
     <Compile Include="Model\Flight.cs" />
     <Compile Include="Model\Genre.cs" />
     <Compile Include="Model\Movie.cs" />
+    <Compile Include="Model\Point2D.cs" />
     <Compile Include="Model\Rectangle.cs" />
     <Compile Include="Model\Season.cs" />
     <Compile Include="Model\SmartphoneManufacturers.cs" />

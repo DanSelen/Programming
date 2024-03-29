@@ -61,6 +61,8 @@
             this.movieNameLabel = new System.Windows.Forms.Label();
             this.MoviesListBox = new System.Windows.Forms.ListBox();
             this.rectanglesGroupBox = new System.Windows.Forms.GroupBox();
+            this.CenterXTextBox = new System.Windows.Forms.TextBox();
+            this.CentrerLabel = new System.Windows.Forms.Label();
             this.RectanglesFindButton = new System.Windows.Forms.Button();
             this.ColorTextBox = new System.Windows.Forms.TextBox();
             this.WidthTextBox = new System.Windows.Forms.TextBox();
@@ -69,6 +71,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.RectanglesListBox = new System.Windows.Forms.ListBox();
+            this.CenterYTextbox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.EnumsTabPage.SuspendLayout();
             this.WeekdayParsingGroupBox.SuspendLayout();
@@ -435,6 +438,9 @@
             // 
             // rectanglesGroupBox
             // 
+            this.rectanglesGroupBox.Controls.Add(this.CenterYTextbox);
+            this.rectanglesGroupBox.Controls.Add(this.CenterXTextBox);
+            this.rectanglesGroupBox.Controls.Add(this.CentrerLabel);
             this.rectanglesGroupBox.Controls.Add(this.RectanglesFindButton);
             this.rectanglesGroupBox.Controls.Add(this.ColorTextBox);
             this.rectanglesGroupBox.Controls.Add(this.WidthTextBox);
@@ -452,6 +458,23 @@
             this.rectanglesGroupBox.TabStop = false;
             this.rectanglesGroupBox.Text = "Rectangles";
             // 
+            // CenterXTextBox
+            // 
+            this.CenterXTextBox.Location = new System.Drawing.Point(185, 211);
+            this.CenterXTextBox.Name = "CenterXTextBox";
+            this.CenterXTextBox.Size = new System.Drawing.Size(27, 20);
+            this.CenterXTextBox.TabIndex = 9;
+            this.CenterXTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CenterXTextBox_KeyPress);
+            // 
+            // CentrerLabel
+            // 
+            this.CentrerLabel.AutoSize = true;
+            this.CentrerLabel.Location = new System.Drawing.Point(182, 195);
+            this.CentrerLabel.Name = "CentrerLabel";
+            this.CentrerLabel.Size = new System.Drawing.Size(78, 13);
+            this.CentrerLabel.TabIndex = 8;
+            this.CentrerLabel.Text = "Center x and y:";
+            // 
             // RectanglesFindButton
             // 
             this.RectanglesFindButton.Location = new System.Drawing.Point(182, 240);
@@ -465,7 +488,7 @@
             // 
             // ColorTextBox
             // 
-            this.ColorTextBox.Location = new System.Drawing.Point(182, 179);
+            this.ColorTextBox.Location = new System.Drawing.Point(182, 151);
             this.ColorTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ColorTextBox.Name = "ColorTextBox";
             this.ColorTextBox.Size = new System.Drawing.Size(76, 20);
@@ -474,7 +497,7 @@
             // 
             // WidthTextBox
             // 
-            this.WidthTextBox.Location = new System.Drawing.Point(182, 115);
+            this.WidthTextBox.Location = new System.Drawing.Point(181, 100);
             this.WidthTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.WidthTextBox.Name = "WidthTextBox";
             this.WidthTextBox.Size = new System.Drawing.Size(76, 20);
@@ -483,7 +506,7 @@
             // 
             // LengthTextBox
             // 
-            this.LengthTextBox.Location = new System.Drawing.Point(182, 55);
+            this.LengthTextBox.Location = new System.Drawing.Point(182, 50);
             this.LengthTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.LengthTextBox.Name = "LengthTextBox";
             this.LengthTextBox.Size = new System.Drawing.Size(76, 20);
@@ -493,7 +516,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(179, 163);
+            this.label3.Location = new System.Drawing.Point(178, 128);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
@@ -503,7 +526,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 99);
+            this.label2.Location = new System.Drawing.Point(178, 84);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
@@ -513,7 +536,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(179, 40);
+            this.label1.Location = new System.Drawing.Point(179, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
@@ -529,6 +552,14 @@
             this.RectanglesListBox.Size = new System.Drawing.Size(138, 225);
             this.RectanglesListBox.TabIndex = 0;
             this.RectanglesListBox.SelectedIndexChanged += new System.EventHandler(this.RectanglesListBox_SelectedIndexChanged);
+            // 
+            // CenterYTextbox
+            // 
+            this.CenterYTextbox.Location = new System.Drawing.Point(230, 211);
+            this.CenterYTextbox.Name = "CenterYTextbox";
+            this.CenterYTextbox.Size = new System.Drawing.Size(27, 20);
+            this.CenterYTextbox.TabIndex = 10;
+            this.CenterYTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CenterYTextbox_KeyPress);
             // 
             // MainForm
             // 
@@ -600,6 +631,9 @@
         private System.Windows.Forms.Label movieRatingLabel;
         private System.Windows.Forms.TextBox movieDurationTextBox;
         private System.Windows.Forms.Label movieDurationLabel;
+        private System.Windows.Forms.TextBox CenterXTextBox;
+        private System.Windows.Forms.Label CentrerLabel;
+        private System.Windows.Forms.TextBox CenterYTextbox;
     }
 }
 

@@ -7,7 +7,20 @@ class Rectangle
     private double _length;
     private double _width;
     private string _color;
-    
+    static int _allRectanglesCount;
+    readonly int _id;
+
+    public int Id
+    {
+        get { return _id; }
+    }
+    public static int AllRectanglesCount
+    {
+        get { return _allRectanglesCount; }
+    }
+    public Point2D Center => new Point2D(Coordinates.X + Length / 2, Coordinates.Y + Width / 2);
+    public Point2D Coordinates { get; set; }
+
     public string Color
     {
         set
@@ -48,12 +61,20 @@ class Rectangle
         Length = 1;
         Width = 1;
         Color = "";
+        Coordinates = new Point2D(1, 1);
+        _id = ++_allRectanglesCount;
 
     }
-    public Rectangle (double length, double width, string color)
+    public Rectangle (double length, double width, Point2D coordinates, string color)
     {
         Length = length;
         Width = width;
         Color = color;
+        Coordinates = coordinates;
+        _id = ++_allRectanglesCount;
+    }
+    public override string ToString()
+    {
+        return $"{Id}: (X={Center.X}; Y={Center.Y}; Length={Length}; Width={Width})";
     }
 }
