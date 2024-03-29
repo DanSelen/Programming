@@ -13,7 +13,7 @@ class Movie
     {
         set
         {
-            Validator.AssertOnPositiveValue(value);
+            Validator.AssertOnPositiveValue(value,nameof(Year));
             _year = value;
         }
         get
@@ -36,7 +36,7 @@ class Movie
     {
         set
         {
-            Validator.AssertValueInRange(value,0,11);
+            Validator.AssertValueInRange(value,0,11,nameof(Rating));
             _rating = value;
         }
         get

@@ -10,7 +10,7 @@ class Time
     {
         set
         {
-            Validator.AssertValueInRange(value, 0, 25);
+            Validator.AssertValueInRange(value, 0, 25,nameof(Hours));
             _hours = value;
         }
         get
@@ -22,7 +22,7 @@ class Time
     {
         set
         {
-            Validator.AssertValueInRange(value, 0, 61);
+            Validator.AssertValueInRange(value, 0, 61, nameof(Minutes));
             _minutes = value;
         }
         get
@@ -34,7 +34,7 @@ class Time
     {
         set
         {
-            Validator.AssertValueInRange(value, 0, 61);
+            Validator.AssertValueInRange(value, 0, 61, nameof(Seconds));
             _seconds = value;
         }
         get

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\CollisionManager.cs" />
     <Compile Include="Model\Colors.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\Discipline.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\Point2D.cs" />
     <Compile Include="Model\Rectangle.cs" />
+    <Compile Include="Model\Ring.cs" />
     <Compile Include="Model\Season.cs" />
     <Compile Include="Model\SmartphoneManufacturers.cs" />
     <Compile Include="Model\Song.cs" />

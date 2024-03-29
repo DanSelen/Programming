@@ -47,7 +47,7 @@ class Song
     {
         set
         {
-            Validator.AssertOnPositiveValue(value);
+            Validator.AssertOnPositiveValue(value,nameof(During));
             _during = value;
         }
         get

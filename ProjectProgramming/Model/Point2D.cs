@@ -16,7 +16,7 @@ namespace ProjectProgramming.Model
             get { return _x; }
             private set
             {
-                Validator.AssertOnPositiveValue(value);
+                Validator.AssertOnPositiveValue(value,nameof(X));
                 _x = value;
             }
         }
@@ -26,7 +26,7 @@ namespace ProjectProgramming.Model
             get { return _y; }
             private set
             {
-                Validator.AssertOnPositiveValue(value);
+                Validator.AssertOnPositiveValue(value,nameof(Y));
                 _y = value;
             }
         }

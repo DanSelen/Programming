@@ -22,7 +22,7 @@ class Discipline
         get { return _grade; }
         set
         {
-            Validator.AssertValueInRange(value, 0, 6);
+            Validator.AssertValueInRange(value, 0, 6,nameof(Grade));
             _grade = value;
         }
     }
@@ -31,7 +31,7 @@ class Discipline
         get { return _semester; }
         set
         {
-            Validator.AssertValueInRange(value, 0, 9);
+            Validator.AssertValueInRange(value, 0, 9, nameof(Semester));
             _semester = value;
         }
     }

@@ -8,7 +8,7 @@ class Rectangle
     private double _width;
     private string _color;
     static int _allRectanglesCount;
-    readonly int _id;
+    readonly int _id = 0;
 
     public int Id
     {
@@ -18,7 +18,7 @@ class Rectangle
     {
         get { return _allRectanglesCount; }
     }
-    public Point2D Center => new Point2D(Coordinates.X + Length / 2, Coordinates.Y + Width / 2);
+    public Point2D Center => new Point2D(Length / 2,Width / 2);
     public Point2D Coordinates { get; set; }
 
     public string Color
@@ -36,7 +36,7 @@ class Rectangle
     {
         set
         {
-            Validator.AssertOnPositiveValue(value);
+            Validator.AssertOnPositiveValue(value,nameof(Length));
             _length = value;
         }
         get 
@@ -48,7 +48,7 @@ class Rectangle
     {
         set
         {
-            Validator.AssertOnPositiveValue(value);
+            Validator.AssertOnPositiveValue(value,nameof(Width));
             _width = value;
         }
         get
@@ -72,9 +72,5 @@ class Rectangle
         Color = color;
         Coordinates = coordinates;
         _id = ++_allRectanglesCount;
-    }
-    public override string ToString()
-    {
-        return $"{Id}: (X={Center.X}; Y={Center.Y}; Length={Length}; Width={Width})";
     }
 }

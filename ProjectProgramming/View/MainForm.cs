@@ -180,7 +180,7 @@ namespace ProjectProgramming
                 ColorTextBox.Text = _currentRectangles.Color.ToString();
                 CenterXTextBox.Text = _currentRectangles.Center.X.ToString();
                 CenterYTextbox.Text = _currentRectangles.Center.Y.ToString();
-
+                IdTextBox.Text = _currentRectangles.Id.ToString();
                 }
                 else
                 {
@@ -346,6 +346,7 @@ namespace ProjectProgramming
                     movieDurationTextBox.Text = _currentMovie.Duration.ToString();
                     movieGenreTextBox.Text = _currentMovie.Genre.ToString();
                     movieYearTextBox.Text = _currentMovie.Year.ToString(); 
+                    
                 }
         }
 
@@ -479,6 +480,11 @@ namespace ProjectProgramming
         private void CenterXTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true; // Отменяем нажатия клавиш
+        }
+
+        private void IdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
