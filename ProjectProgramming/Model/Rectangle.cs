@@ -1,3 +1,4 @@
+using ProjectProgramming.Model;
 using System;
 using System.Drawing;
 
@@ -22,10 +23,8 @@ class Rectangle
     {
         set
         {
-            if (value < 0)
-                throw new ArgumentOutOfRangeException("Значение должно быть больше 0");
-            else
-                _length = value;
+            Validator.AssertOnPositiveValue(value);
+            _length = value;
         }
         get 
         { 
@@ -36,10 +35,8 @@ class Rectangle
     {
         set
         {
-            if (value < 0)
-                throw new ArgumentOutOfRangeException("Значение должно быть больше 0");
-            else
-                _width = value;
+            Validator.AssertOnPositiveValue(value);
+            _width = value;
         }
         get
         {

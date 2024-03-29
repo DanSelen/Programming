@@ -1,3 +1,4 @@
+using ProjectProgramming.Model;
 using System;
 using System.Xml.Linq;
 
@@ -12,10 +13,8 @@ class Movie
     {
         set
         {
-            if (value < 0)
-                throw new ArgumentException("Фильм не может быть меньше 0");
-            else 
-                _year = value;
+            Validator.AssertOnPositiveValue(value);
+            _year = value;
         }
         get
         {
@@ -37,10 +36,8 @@ class Movie
     {
         set
         {
-            if (value < 0 || value > 10)
-                throw new ArgumentOutOfRangeException("Рейтинг должен быть в диапазоне от 0 до 10");
-            else 
-                _rating = value;
+            Validator.AssertValueInRange(value,0,11);
+            _rating = value;
         }
         get
         {

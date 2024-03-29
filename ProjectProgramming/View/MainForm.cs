@@ -375,10 +375,14 @@ namespace ProjectProgramming
                 {
                     _currentMovie.Year = Convert.ToInt32(movieYearTextBox.Text);
                 }
-                catch (FormatException)
+                catch (ArgumentException)
                 {
                     // обработаем это исключение здесь или оставим без обработки
                     // обработка уже произведена в методе ValidateInput
+                }
+                catch
+                {
+
                 }
             }
         }
@@ -414,6 +418,10 @@ namespace ProjectProgramming
                     movieRatingTextBox.BackColor = Color.LightPink;
                 }
                 catch (FormatException)
+                {
+
+                }
+                catch (ArgumentException)
                 {
                     // обработаем это исключение здесь или оставим без обработки
                     // обработка уже произведена в методе ValidateInput

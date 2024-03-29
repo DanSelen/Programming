@@ -1,3 +1,5 @@
+using ProjectProgramming.Model;
+
 class Song
 {
     private string _name;
@@ -45,6 +47,7 @@ class Song
     {
         set
         {
+            Validator.AssertOnPositiveValue(value);
             _during = value;
         }
         get

@@ -1,3 +1,4 @@
+using ProjectProgramming.Model;
 using System;
 
 class Time
@@ -9,10 +10,8 @@ class Time
     {
         set
         {
-            if (value < 0 & value >= 24)
-               throw new ArgumentException("Значение должно быть от 0 до 24");
-            else 
-                _hours = value;
+            Validator.AssertValueInRange(value, 0, 25);
+            _hours = value;
         }
         get
         {
@@ -23,10 +22,8 @@ class Time
     {
         set
         {
-            if (value < 0 & value > 60)
-                throw new ArgumentException("Значение должно быть от 0 до 60");
-            else
-                _minutes = value;
+            Validator.AssertValueInRange(value, 0, 61);
+            _minutes = value;
         }
         get
         {
@@ -37,10 +34,8 @@ class Time
     {
         set
         {
-            if (value < 0 & value >= 60)
-                throw new ArgumentException("Значение должно быть от 0 до 60");
-            else
-                _seconds = value;
+            Validator.AssertValueInRange(value, 0, 61);
+            _seconds = value;
         }
         get
         {

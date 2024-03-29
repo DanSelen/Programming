@@ -1,3 +1,4 @@
+using ProjectProgramming.Model;
 using System;
 
 class Discipline
@@ -21,9 +22,8 @@ class Discipline
         get { return _grade; }
         set
         {
-            if (value<2 & value > 5)
-                throw new ArgumentException("оценка должна быть от 2 до 5");
-            else _grade = value;
+            Validator.AssertValueInRange(value, 0, 6);
+            _grade = value;
         }
     }
     public int Semester
@@ -31,9 +31,8 @@ class Discipline
         get { return _semester; }
         set
         {
-            if (value < 1 & value > 8)
-                throw new ArgumentException("Значение семестра должно быть от 1 до 8");
-            else _semester = value;
+            Validator.AssertValueInRange(value, 0, 9);
+            _semester = value;
         }
     }
 

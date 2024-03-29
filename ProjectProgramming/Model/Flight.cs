@@ -1,4 +1,6 @@
 
+using ProjectProgramming.Model;
+
 class Flight
 {
     private string _departurePoint;
@@ -8,7 +10,18 @@ class Flight
     public string DeparturePoint { get { return _departurePoint; } set { _departurePoint = value; } }
     public string ArrivalPoint { get { return _arrivalPoint; } set { _arrivalPoint = value; } }
 
-    public int FlightTime { get { return _flightTime; } set { _flightTime = value; } }
+    public int FlightTime
+    {
+        set
+        {
+            Validator.AssertOnPositiveValue(value);
+            _flightTime = value;
+        }
+        get
+        {
+            return _flightTime;
+        }
+    }
 
     public Flight(string departurePoint, string arrivalPoint, int flightTime)
     {
