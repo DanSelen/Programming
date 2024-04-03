@@ -72,5 +72,6 @@ class Rectangle
         Color = color;
         Coordinates = coordinates;
         _id = ++_allRectanglesCount;
+
     }
 }
