@@ -19,7 +19,7 @@ namespace ProjectProgramming.Model
         {
             if (value < min || value >= max) 
                 throw new ArgumentException($"The value {nameof(propertyName)} is out of range.");
-        }
+        } 
         public static void AssertValueInRange(double value, double min, double max, string propertyName)
         {
             if (value < min || value >= max) 
