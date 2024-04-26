@@ -497,17 +497,11 @@ namespace ProjectProgramming
 
             // Генерируем случайные значения для координат и размеров прямоугольника
             Random random = new Random();
-            int id = random.Next(1000); // Генерируем случайный Id для прямоугольника
+            
             int x = random.Next(10); // Генерируем случайное значение X координаты
             int y = random.Next(10); // Генерируем случайное значение Y координаты
             int width = random.Next(30); // Генерируем случайную ширину прямоугольника
             int length = random.Next(30); // Генерируем случайную высоту прямоугольника
-
-            IdPanelTextBox.Text = Convert.ToString(id);
-            XPanelTextBox.Text = Convert.ToString(x);
-            YPanelTextBox.Text = Convert.ToString(y);
-            WidthPanelTextBox.Text = Convert.ToString(width);
-            HeightPanelTextBox.Text = Convert.ToString(length);
 
             // Проверяем, есть ли пользовательские значения в текстовых полях и используем их, если они введены
             /*if (!string.IsNullOrWhiteSpace(IdPanelTextBox.Text))
@@ -524,6 +518,12 @@ namespace ProjectProgramming
 
             // Создаем новый экземпляр прямоугольника
             _canvaCurrentRectangle = new Rectangle(length, width, new Point2D(x, y), "");
+
+            IdPanelTextBox.Text = Convert.ToString(_canvaCurrentRectangle.Id);
+            XPanelTextBox.Text = Convert.ToString(x);
+            YPanelTextBox.Text = Convert.ToString(y);
+            WidthPanelTextBox.Text = Convert.ToString(width);
+            HeightPanelTextBox.Text = Convert.ToString(length);
 
             // Добавляем созданный прямоугольник в список _canvaRectangles
             _canvaRectangles.Add(_canvaCurrentRectangle);
@@ -550,6 +550,23 @@ namespace ProjectProgramming
                 HeightPanelTextBox.Clear();
             }
 
+        }
+
+        private void ClassRectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Проверяем, выбран ли какой-либо элемент в ListBox
+            if (ClassRectanglesListBox.SelectedItem != null)
+            {
+                // Получаем выбранный прямоугольник из ListBox
+                _canvaCurrentRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
+
+                // Отображаем свойства выбранного прямоугольника в соответствующих элементах управления
+                IdPanelTextBox.Text = _canvaCurrentRectangle.Id.ToString();
+                XPanelTextBox.Text = _canvaCurrentRectangle.Coordinates.X.ToString();
+                YPanelTextBox.Text = _canvaCurrentRectangle.Coordinates.Y.ToString();
+                WidthPanelTextBox.Text = _canvaCurrentRectangle.Width.ToString();
+                HeightPanelTextBox.Text = _canvaCurrentRectangle.Length.ToString();
+            }
         }
     }
 }

@@ -767,11 +767,12 @@
             // ClassRectanglesListBox
             // 
             this.ClassRectanglesListBox.FormattingEnabled = true;
-            this.ClassRectanglesListBox.Location = new System.Drawing.Point(4, 28);
+            this.ClassRectanglesListBox.Location = new System.Drawing.Point(2, 29);
             this.ClassRectanglesListBox.Margin = new System.Windows.Forms.Padding(2);
             this.ClassRectanglesListBox.Name = "ClassRectanglesListBox";
             this.ClassRectanglesListBox.Size = new System.Drawing.Size(190, 121);
             this.ClassRectanglesListBox.TabIndex = 1;
+            this.ClassRectanglesListBox.SelectedIndexChanged += new System.EventHandler(this.ClassRectanglesListBox_SelectedIndexChanged);
             // 
             // RectanglePanel
             // 
