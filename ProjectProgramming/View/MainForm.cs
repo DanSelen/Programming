@@ -523,11 +523,11 @@ namespace ProjectProgramming
             */
 
             // Создаем новый экземпляр прямоугольника
-            Rectangle newRectangle = new Rectangle(length, width, new Point2D(x, y), "");
+            _canvaCurrentRectangle = new Rectangle(length, width, new Point2D(x, y), "");
 
             // Добавляем созданный прямоугольник в список _canvaRectangles
-            _canvaRectangles.Add(newRectangle);
-            ClassRectanglesListBox.Items.Add(newRectangle);
+            _canvaRectangles.Add(_canvaCurrentRectangle);
+            ClassRectanglesListBox.Items.Add(_canvaCurrentRectangle);
 
 
         }
@@ -536,13 +536,13 @@ namespace ProjectProgramming
             if (ClassRectanglesListBox.SelectedItem != null)
             {
                 // Получаем выбранный прямоугольник из ListBox
-                Rectangle selectedRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
+                _canvaCurrentRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
 
                 // Удаляем прямоугольник из списка _canvaRectangles
-                _canvaRectangles.Remove(selectedRectangle);
+                _canvaRectangles.Remove(_canvaCurrentRectangle);
 
                 // Удаляем прямоугольник из ListBox
-                ClassRectanglesListBox.Items.Remove(selectedRectangle);
+                ClassRectanglesListBox.Items.Remove(_canvaCurrentRectangle);
                 IdPanelTextBox.Clear();
                 XPanelTextBox.Clear();
                 YPanelTextBox.Clear();
