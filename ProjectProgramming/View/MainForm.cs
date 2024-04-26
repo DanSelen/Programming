@@ -32,6 +32,9 @@ namespace ProjectProgramming
         private List<Rectangle> _canvaRectangles = new List<Rectangle>();
         private Rectangle _canvaCurrentRectangle;
 
+        //
+        private List<Panel> _rectanglePanels = new List<Panel>();
+
 
         public MainForm()
         {
@@ -497,38 +500,47 @@ namespace ProjectProgramming
 
             // Генерируем случайные значения для координат и размеров прямоугольника
             Random random = new Random();
-            
-            int x = random.Next(1, 10); // Генерируем случайное значение X координаты
-            int y = random.Next(1,10); // Генерируем случайное значение Y координаты
-            int width = random.Next(1,30); // Генерируем случайную ширину прямоугольника
-            int length = random.Next(1,30); // Генерируем случайную высоту прямоугольника
+            int x = random.Next(1, 100); 
+            int y = random.Next(1, 100); 
+            int width = random.Next(1, 300); 
+            int length = random.Next(1, 300); 
 
-            
-            _canvaCurrentRectangle = new Rectangle(length, width, new Point2D(x, y), "");
+            // Создаем новый прямоугольник и добавляем его в список прямоугольников
+            Rectangle newRectangle = new Rectangle(length, width, new Point2D(x, y), "");
+            _canvaRectangles.Add(newRectangle);
 
-            IdPanelTextBox.Text = Convert.ToString(_canvaCurrentRectangle.Id);
-            XPanelTextBox.Text = Convert.ToString(x);
-            YPanelTextBox.Text = Convert.ToString(y);
-            WidthPanelTextBox.Text = Convert.ToString(width);
-            HeightPanelTextBox.Text = Convert.ToString(length);
+            // Добавляем созданный прямоугольник в ListBox
+            ClassRectanglesListBox.Items.Add(newRectangle);
 
-            // Добавляем созданный прямоугольник в список _canvaRectangles
-            _canvaRectangles.Add(_canvaCurrentRectangle);
-            ClassRectanglesListBox.Items.Add(_canvaCurrentRectangle);
+            // Создаем новую панель для отображения прямоугольника
+            Panel rectanglePanel = new Panel();
+
+            // Устанавливаем размеры и положение панели в соответствии с прямоугольником
+            rectanglePanel.Location = new Point(x, y);
+            rectanglePanel.Size = new Size(width, length);
+
+            // Устанавливаем цвет фона панели
+            rectanglePanel.BackColor = Color.FromArgb(127, 127, 255, 127);
+
+            // Добавляем созданную панель на канву
+            RectanglePanel.Controls.Add(rectanglePanel);
+
+            // Добавляем созданную панель в список _rectanglePanels
+            _rectanglePanels.Add(rectanglePanel);
 
 
         }
+
+
+
         private void DeleteRectangleButton_Click(object sender, EventArgs e)
         {
             if (ClassRectanglesListBox.SelectedItem != null)
             {
-                // Получаем выбранный прямоугольник из ListBox
+                
                 _canvaCurrentRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
-
-                // Удаляем прямоугольник из списка _canvaRectangles
                 _canvaRectangles.Remove(_canvaCurrentRectangle);
-
-                // Удаляем прямоугольник из ListBox
+                RectanglePanel.Controls.RemoveAt(ClassRectanglesListBox.SelectedIndex);
                 ClassRectanglesListBox.Items.Remove(_canvaCurrentRectangle);
                 IdPanelTextBox.Clear();
                 IdPanelTextBox.BackColor = Color.White;
@@ -541,6 +553,8 @@ namespace ProjectProgramming
                 YPanelTextBox.BackColor = Color.White;
                 WidthPanelTextBox.BackColor = Color.White;
                 HeightPanelTextBox.BackColor = Color.White;
+               
+
             }
 
         }
