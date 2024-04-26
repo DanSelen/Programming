@@ -74,4 +74,8 @@ class Rectangle
         _id = ++_allRectanglesCount;
 
     }
+    public override string ToString()
+    {
+        return $"Id: {Id}, X: {Coordinates.X}, Y: {Coordinates.Y}, Width: {Width}, Length: {Length}";
+    }
 }
