@@ -661,6 +661,7 @@
             this.HeightPanelTextBox.Name = "HeightPanelTextBox";
             this.HeightPanelTextBox.Size = new System.Drawing.Size(76, 20);
             this.HeightPanelTextBox.TabIndex = 13;
+            this.HeightPanelTextBox.TextChanged += new System.EventHandler(this.HeigthPanelTextBox_TextChanged);
             // 
             // XPanelTextBox
             // 
@@ -669,6 +670,7 @@
             this.XPanelTextBox.Name = "XPanelTextBox";
             this.XPanelTextBox.Size = new System.Drawing.Size(76, 20);
             this.XPanelTextBox.TabIndex = 12;
+            this.XPanelTextBox.TextChanged += new System.EventHandler(this.XPanelTextBox_TextChanged);
             // 
             // WidthPanelTextBox
             // 
@@ -677,6 +679,7 @@
             this.WidthPanelTextBox.Name = "WidthPanelTextBox";
             this.WidthPanelTextBox.Size = new System.Drawing.Size(76, 20);
             this.WidthPanelTextBox.TabIndex = 11;
+            this.WidthPanelTextBox.TextChanged += new System.EventHandler(this.WidthPanelTextBox_TextChanged);
             // 
             // YPanelTextBox
             // 
@@ -685,6 +688,7 @@
             this.YPanelTextBox.Name = "YPanelTextBox";
             this.YPanelTextBox.Size = new System.Drawing.Size(76, 20);
             this.YPanelTextBox.TabIndex = 10;
+            this.YPanelTextBox.TextChanged += new System.EventHandler(this.YPanelTextBox_TextChanged);
             // 
             // IdPanelTextBox
             // 

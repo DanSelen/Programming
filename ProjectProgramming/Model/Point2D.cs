@@ -14,7 +14,7 @@ namespace ProjectProgramming.Model
         public double X
         {
             get { return _x; }
-            private set
+            set
             {
                 Validator.AssertOnPositiveValue(value,nameof(X));
                 _x = value;
@@ -24,7 +24,7 @@ namespace ProjectProgramming.Model
         public double Y
         {
             get { return _y; }
-            private set
+            set
             {
                 Validator.AssertOnPositiveValue(value,nameof(Y));
                 _y = value;

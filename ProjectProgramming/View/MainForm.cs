@@ -568,5 +568,76 @@ namespace ProjectProgramming
                 HeightPanelTextBox.Text = _canvaCurrentRectangle.Length.ToString();
             }
         }
+
+        private void XPanelTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput(XPanelTextBox);
+            if (_canvaCurrentRectangle != null)
+            {
+                Rectangle selectedRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
+
+                try
+                { _canvaCurrentRectangle.Coordinates.X = Convert.ToDouble(XPanelTextBox.Text); }
+                catch
+                {
+                    XPanelTextBox.BackColor = Color.LightPink;
+                }
+
+                ClassRectanglesListBox.Refresh();
+            }
+        }
+
+        private void YPanelTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput(YPanelTextBox);
+            if (_canvaCurrentRectangle != null)
+            {
+                Rectangle selectedRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
+
+                try
+                { _canvaCurrentRectangle.Coordinates.X = Convert.ToDouble(XPanelTextBox.Text); }
+                catch
+                {
+                    XPanelTextBox.BackColor = Color.LightPink;
+                }
+
+                ClassRectanglesListBox.Refresh();
+            }
+        }
+        private void WidthPanelTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput(WidthPanelTextBox);
+            if (_canvaCurrentRectangle != null)
+            {
+                Rectangle selectedRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
+
+                try
+                { _canvaCurrentRectangle.Width = Convert.ToDouble(WidthPanelTextBox.Text); }
+                catch
+                {
+                    WidthPanelTextBox.BackColor = Color.LightPink;
+                }
+
+                ClassRectanglesListBox.Refresh();
+            }
+        }
+
+        private void HeigthPanelTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput(HeightPanelTextBox);
+            if (_canvaCurrentRectangle != null)
+            {
+                Rectangle selectedRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
+
+                try
+                { _canvaCurrentRectangle.Length = Convert.ToDouble(HeightPanelTextBox.Text); }
+                catch
+                {
+                    HeightPanelTextBox.BackColor = Color.LightPink;
+                }
+
+                ClassRectanglesListBox.Refresh();
+            }
+        }
     }
 }
