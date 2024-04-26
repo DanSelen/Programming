@@ -21,17 +21,21 @@ namespace ProjectProgramming
         private Rectangle _currentRectangles;
         private string[] _listboxRectangle = new string[5];
         Random random = new Random();
-        private string[] _collorsArray = { "Red", "Blue", "Green", "Yellow", "Black", "White", "Purple" } ;
+        private string[] _collorsArray = { "Red", "Blue", "Green", "Yellow", "Black", "White", "Purple" };
 
         //Модуль Movies
         private Movie[] _movies = new Movie[5];
         private Movie _currentMovie;
         private string[] _listboxMovies = new string[5];
 
+        //tabPage Rectangles
+        private List<Rectangle> _canvaRectangles = new List<Rectangle>();
+        private Rectangle _canvaCurrentRectangle;
+
 
         public MainForm()
         {
-            
+
 
 
             InitializeComponent();
@@ -46,7 +50,7 @@ namespace ProjectProgramming
 
             Random random = new Random();
             //Модуль Movie
-            for (int i = 0; i<_listboxMovies.Length; i++)
+            for (int i = 0; i < _listboxMovies.Length; i++)
             {
                 // Генерируем случайные значения для каждого параметра фильма
                 _listboxMovies[i] = ($"Movie {i + 1}");
@@ -57,7 +61,7 @@ namespace ProjectProgramming
                 string[] genres = { "Action", "Comedy", "Drama", "Horror", "Sci-Fi", "Thriller" };
                 string genre = genres[random.Next(genres.Length)]; // Случайный жанр из списка
                 _movies[i] = new Movie(name, duration, year, rating, genre);
-                
+
             }
             MoviesListBox.Items.AddRange(_listboxMovies);
 
@@ -68,11 +72,11 @@ namespace ProjectProgramming
                 double length = random.Next(1, 20);
                 double width = random.Next(1, 20);
                 int colorRandomIndex = random.Next(0, _collorsArray.Length - 1);
-                double x = random.Next(1,10);
+                double x = random.Next(1, 10);
                 double y = random.Next(1, 10);
                 Point2D coordinatesOfRectangle = new Point2D(x, y);
 
-                _rectangles[i] = new Rectangle(length, width,coordinatesOfRectangle,_collorsArray[colorRandomIndex]);
+                _rectangles[i] = new Rectangle(length, width, coordinatesOfRectangle, _collorsArray[colorRandomIndex]);
                 _listboxRectangle[i] = ($"Rectangle {i + 1}");
             }
             RectanglesListBox.Items.AddRange(_listboxRectangle);
@@ -83,7 +87,7 @@ namespace ProjectProgramming
             ChooseValueBox.Items.Clear();
             switch (ChooseEnumerationBox.SelectedIndex)
             {
-                case 0: 
+                case 0:
                     ChooseValueBox.Items.AddRange(Enum.GetValues(typeof(Colors)).Cast<object>().ToArray());
                     break;
                 case 1:
@@ -173,20 +177,20 @@ namespace ProjectProgramming
         {
             if (RectanglesListBox.SelectedIndex >= 0)
                 _currentRectangles = _rectangles[RectanglesListBox.SelectedIndex];
-                if (_currentRectangles != null)
-                {
+            if (_currentRectangles != null)
+            {
                 LengthTextBox.Text = _currentRectangles.Length.ToString();
                 WidthTextBox.Text = _currentRectangles.Width.ToString();
                 ColorTextBox.Text = _currentRectangles.Color.ToString();
                 CenterXTextBox.Text = _currentRectangles.Center.X.ToString();
                 CenterYTextbox.Text = _currentRectangles.Center.Y.ToString();
                 IdTextBox.Text = _currentRectangles.Id.ToString();
-                }
-                else
-                {
-                    // Обработка ситуации, когда _currentRectangles равен null
-                    // Можно очистить текстовые поля или установить сообщение об ошибке
-                }
+            }
+            else
+            {
+                // Обработка ситуации, когда _currentRectangles равен null
+                // Можно очистить текстовые поля или установить сообщение об ошибке
+            }
             /*LengthTextBox.Text = _currentRectangles.Length.ToString();
             WidthTextBox.Text = _currentRectangles.Width.ToString();
             ColorTextBox.Text = _currentRectangles.Color.ToString();
@@ -202,7 +206,7 @@ namespace ProjectProgramming
                 {
                     _currentRectangles.Length = Convert.ToDouble(LengthTextBox.Text);
                 }
-                catch 
+                catch
                 {
                     // обработаем это исключение здесь или оставим без обработки
                     // обработка уже произведена в методе ValidateInput
@@ -219,7 +223,7 @@ namespace ProjectProgramming
                 {
                     _currentRectangles.Width = Convert.ToDouble(WidthTextBox.Text);
                 }
-                catch 
+                catch
                 {
                     // обработаем это исключение здесь или оставим без обработки
                     // обработка уже произведена в методе ValidateInput
@@ -251,7 +255,7 @@ namespace ProjectProgramming
                 double value = double.Parse(textBox.Text);
 
                 // Проверяем, что число входит в допустимый диапазон
-                if (value < 0 ) 
+                if (value < 0)
                 {
                     throw new ArgumentException("Число меньше 0");
                 }
@@ -339,20 +343,20 @@ namespace ProjectProgramming
         {
             if (MoviesListBox.SelectedIndex >= 0)
                 _currentMovie = _movies[MoviesListBox.SelectedIndex];
-                if (_currentMovie != null)
-                {
-                    movieNameTextBox.Text = _currentMovie.Name.ToString();
-                    movieRatingTextBox.Text = _currentMovie.Rating.ToString();
-                    movieDurationTextBox.Text = _currentMovie.Duration.ToString();
-                    movieGenreTextBox.Text = _currentMovie.Genre.ToString();
-                    movieYearTextBox.Text = _currentMovie.Year.ToString(); 
-                    
-                }
+            if (_currentMovie != null)
+            {
+                movieNameTextBox.Text = _currentMovie.Name.ToString();
+                movieRatingTextBox.Text = _currentMovie.Rating.ToString();
+                movieDurationTextBox.Text = _currentMovie.Duration.ToString();
+                movieGenreTextBox.Text = _currentMovie.Genre.ToString();
+                movieYearTextBox.Text = _currentMovie.Year.ToString();
+
+            }
         }
 
         private void movieFindButton_Click(object sender, EventArgs e)
         {
-            MoviesListBox.SelectedItem =FindMovieWithMaxRating(_movies);
+            MoviesListBox.SelectedItem = FindMovieWithMaxRating(_movies);
             MoviesListBox.SelectedIndex = FindMovieWithMaxRating(_movies);
         }
         private int FindMovieWithMaxRating(Movie[] movies)
@@ -485,6 +489,67 @@ namespace ProjectProgramming
         private void IdTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        // Обработчик события кнопки "Добавить прямоугольник"
+        private void AddRectangleButton_Click(object sender, EventArgs e)
+        {
+
+            // Генерируем случайные значения для координат и размеров прямоугольника
+            Random random = new Random();
+            int id = random.Next(1000); // Генерируем случайный Id для прямоугольника
+            int x = random.Next(10); // Генерируем случайное значение X координаты
+            int y = random.Next(10); // Генерируем случайное значение Y координаты
+            int width = random.Next(30); // Генерируем случайную ширину прямоугольника
+            int length = random.Next(30); // Генерируем случайную высоту прямоугольника
+
+            IdPanelTextBox.Text = Convert.ToString(id);
+            XPanelTextBox.Text = Convert.ToString(x);
+            YPanelTextBox.Text = Convert.ToString(y);
+            WidthPanelTextBox.Text = Convert.ToString(width);
+            HeightPanelTextBox.Text = Convert.ToString(length);
+
+            // Проверяем, есть ли пользовательские значения в текстовых полях и используем их, если они введены
+            /*if (!string.IsNullOrWhiteSpace(IdPanelTextBox.Text))
+                id = int.Parse(IdPanelTextBox.Text);
+            if (!string.IsNullOrWhiteSpace(XPanelTextBox.Text))
+                x = int.Parse(XPanelTextBox.Text);
+            if (!string.IsNullOrWhiteSpace(YPanelTextBox.Text))
+                y = int.Parse(YPanelTextBox.Text);
+            if (!string.IsNullOrWhiteSpace(WidthPanelTextBox.Text))
+                width = int.Parse(WidthPanelTextBox.Text);
+            if (!string.IsNullOrWhiteSpace(HeightPanelTextBox.Text))
+                length = int.Parse(HeightPanelTextBox.Text);
+            */
+
+            // Создаем новый экземпляр прямоугольника
+            Rectangle newRectangle = new Rectangle(length, width, new Point2D(x, y), "");
+
+            // Добавляем созданный прямоугольник в список _canvaRectangles
+            _canvaRectangles.Add(newRectangle);
+            ClassRectanglesListBox.Items.Add(newRectangle);
+
+
+        }
+        private void DeleteRectangleButton_Click(object sender, EventArgs e)
+        {
+            if (ClassRectanglesListBox.SelectedItem != null)
+            {
+                // Получаем выбранный прямоугольник из ListBox
+                Rectangle selectedRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
+
+                // Удаляем прямоугольник из списка _canvaRectangles
+                _canvaRectangles.Remove(selectedRectangle);
+
+                // Удаляем прямоугольник из ListBox
+                ClassRectanglesListBox.Items.Remove(selectedRectangle);
+                IdPanelTextBox.Clear();
+                XPanelTextBox.Clear();
+                YPanelTextBox.Clear();
+                WidthPanelTextBox.Clear();
+                HeightPanelTextBox.Clear();
+            }
+
         }
     }
 }
