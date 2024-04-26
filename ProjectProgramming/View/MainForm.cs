@@ -503,20 +503,7 @@ namespace ProjectProgramming
             int width = random.Next(30); // Генерируем случайную ширину прямоугольника
             int length = random.Next(30); // Генерируем случайную высоту прямоугольника
 
-            // Проверяем, есть ли пользовательские значения в текстовых полях и используем их, если они введены
-            /*if (!string.IsNullOrWhiteSpace(IdPanelTextBox.Text))
-                id = int.Parse(IdPanelTextBox.Text);
-            if (!string.IsNullOrWhiteSpace(XPanelTextBox.Text))
-                x = int.Parse(XPanelTextBox.Text);
-            if (!string.IsNullOrWhiteSpace(YPanelTextBox.Text))
-                y = int.Parse(YPanelTextBox.Text);
-            if (!string.IsNullOrWhiteSpace(WidthPanelTextBox.Text))
-                width = int.Parse(WidthPanelTextBox.Text);
-            if (!string.IsNullOrWhiteSpace(HeightPanelTextBox.Text))
-                length = int.Parse(HeightPanelTextBox.Text);
-            */
-
-            // Создаем новый экземпляр прямоугольника
+            
             _canvaCurrentRectangle = new Rectangle(length, width, new Point2D(x, y), "");
 
             IdPanelTextBox.Text = Convert.ToString(_canvaCurrentRectangle.Id);
@@ -544,10 +531,16 @@ namespace ProjectProgramming
                 // Удаляем прямоугольник из ListBox
                 ClassRectanglesListBox.Items.Remove(_canvaCurrentRectangle);
                 IdPanelTextBox.Clear();
+                IdPanelTextBox.BackColor = Color.White;
                 XPanelTextBox.Clear();
                 YPanelTextBox.Clear();
                 WidthPanelTextBox.Clear();
                 HeightPanelTextBox.Clear();
+                IdPanelTextBox.BackColor = Color.White;
+                XPanelTextBox.BackColor = Color.White;
+                YPanelTextBox.BackColor = Color.White;
+                WidthPanelTextBox.BackColor = Color.White;
+                HeightPanelTextBox.BackColor = Color.White;
             }
 
         }
@@ -583,7 +576,6 @@ namespace ProjectProgramming
                     XPanelTextBox.BackColor = Color.LightPink;
                 }
 
-                ClassRectanglesListBox.Refresh();
             }
         }
 
@@ -601,7 +593,6 @@ namespace ProjectProgramming
                     XPanelTextBox.BackColor = Color.LightPink;
                 }
 
-                ClassRectanglesListBox.Refresh();
             }
         }
         private void WidthPanelTextBox_TextChanged(object sender, EventArgs e)
@@ -618,7 +609,6 @@ namespace ProjectProgramming
                     WidthPanelTextBox.BackColor = Color.LightPink;
                 }
 
-                ClassRectanglesListBox.Refresh();
             }
         }
 
@@ -635,8 +625,6 @@ namespace ProjectProgramming
                 {
                     HeightPanelTextBox.BackColor = Color.LightPink;
                 }
-
-                ClassRectanglesListBox.Refresh();
             }
         }
     }
