@@ -498,10 +498,10 @@ namespace ProjectProgramming
             // Генерируем случайные значения для координат и размеров прямоугольника
             Random random = new Random();
             
-            int x = random.Next(10); // Генерируем случайное значение X координаты
-            int y = random.Next(10); // Генерируем случайное значение Y координаты
-            int width = random.Next(30); // Генерируем случайную ширину прямоугольника
-            int length = random.Next(30); // Генерируем случайную высоту прямоугольника
+            int x = random.Next(1, 10); // Генерируем случайное значение X координаты
+            int y = random.Next(1,10); // Генерируем случайное значение Y координаты
+            int width = random.Next(1,30); // Генерируем случайную ширину прямоугольника
+            int length = random.Next(1,30); // Генерируем случайную высоту прямоугольника
 
             
             _canvaCurrentRectangle = new Rectangle(length, width, new Point2D(x, y), "");
@@ -587,10 +587,10 @@ namespace ProjectProgramming
                 Rectangle selectedRectangle = (Rectangle)ClassRectanglesListBox.SelectedItem;
 
                 try
-                { _canvaCurrentRectangle.Coordinates.X = Convert.ToDouble(XPanelTextBox.Text); }
+                { _canvaCurrentRectangle.Coordinates.Y = Convert.ToDouble(YPanelTextBox.Text); }
                 catch
                 {
-                    XPanelTextBox.BackColor = Color.LightPink;
+                    YPanelTextBox.BackColor = Color.LightPink;
                 }
 
             }
