@@ -68,6 +68,7 @@
             // 
             // SelectedCustomerPanel
             // 
+            SelectedCustomerPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             SelectedCustomerPanel.BackColor = SystemColors.ButtonHighlight;
             SelectedCustomerPanel.Controls.Add(AddressLabel);
             SelectedCustomerPanel.Controls.Add(FullNameLabel);
@@ -120,6 +121,7 @@
             // 
             // AddressTextBox
             // 
+            AddressTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             AddressTextBox.Location = new Point(83, 92);
             AddressTextBox.Multiline = true;
             AddressTextBox.Name = "AddressTextBox";
@@ -142,6 +144,7 @@
             // 
             // Panel2
             // 
+            Panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Panel2.BackColor = SystemColors.ButtonHighlight;
             Panel2.Location = new Point(336, 199);
             Panel2.Name = "Panel2";
@@ -151,7 +154,7 @@
             // CustomersLabel
             // 
             CustomersLabel.AutoSize = true;
-            CustomersLabel.BackColor = SystemColors.Control;
+            CustomersLabel.BackColor = SystemColors.ControlLightLight;
             CustomersLabel.Dock = DockStyle.Fill;
             CustomersLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             CustomersLabel.Location = new Point(3, 0);
@@ -174,7 +177,8 @@
             // 
             // CustomersTableLayoutPanel
             // 
-            CustomersTableLayoutPanel.BackColor = SystemColors.Control;
+            CustomersTableLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            CustomersTableLayoutPanel.BackColor = SystemColors.ControlLightLight;
             CustomersTableLayoutPanel.ColumnCount = 3;
             CustomersTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             CustomersTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));

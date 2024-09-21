@@ -80,6 +80,7 @@
             // ItemsPanel
             // 
             ItemsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            ItemsPanel.BackColor = SystemColors.ControlLightLight;
             ItemsPanel.Controls.Add(ItemsLabel);
             ItemsPanel.Controls.Add(ItemsListBox);
             ItemsPanel.Controls.Add(AddButton);
@@ -191,10 +192,10 @@
             // SelectedItemLabel
             // 
             SelectedItemLabel.AutoSize = true;
-            SelectedItemLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            SelectedItemLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             SelectedItemLabel.Location = new Point(17, 10);
             SelectedItemLabel.Name = "SelectedItemLabel";
-            SelectedItemLabel.Size = new Size(86, 15);
+            SelectedItemLabel.Size = new Size(91, 17);
             SelectedItemLabel.TabIndex = 0;
             SelectedItemLabel.Text = "Selected Item";
             // 

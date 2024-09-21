@@ -40,9 +40,9 @@
             // 
             // TabControl
             // 
-            TabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TabControl.Controls.Add(TabPage1);
             TabControl.Controls.Add(TabPage2);
+            TabControl.Dock = DockStyle.Fill;
             TabControl.Location = new Point(0, 0);
             TabControl.Name = "TabControl";
             TabControl.SelectedIndex = 0;
@@ -66,7 +66,7 @@
             ItemsTab1.Location = new Point(3, 3);
             ItemsTab1.MinimumSize = new Size(400, 400);
             ItemsTab1.Name = "ItemsTab1";
-            ItemsTab1.Size = new Size(927, 584);
+            ItemsTab1.Size = new Size(950, 597);
             ItemsTab1.TabIndex = 0;
             // 
             // TabPage2
@@ -82,9 +82,10 @@
             // 
             // customersTab1
             // 
-            customersTab1.Location = new Point(8, 6);
+            customersTab1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            customersTab1.Location = new Point(3, 3);
             customersTab1.Name = "customersTab1";
-            customersTab1.Size = new Size(927, 584);
+            customersTab1.Size = new Size(950, 597);
             customersTab1.TabIndex = 0;
             // 
             // MainForm
