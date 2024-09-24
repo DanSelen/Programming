@@ -105,7 +105,7 @@ namespace ObjectOrientedPractics.View.Tabs
                         FullNameTextBox.Focus();
                         FullNameTextBox.Select(FullNameTextBox.Text.Length, 0);
                     }
-                } 
+                }
                 catch (ArgumentException)
                 {
                     FullNameTextBox.BackColor = AppColors.DefaultColor;
@@ -128,11 +128,18 @@ namespace ObjectOrientedPractics.View.Tabs
                         AddressTextBox.Select(AddressTextBox.Text.Length, 0);
                     }
                 }
-                catch(ArgumentException)
+                catch (ArgumentException)
                 {
 
                 }
             }
+        }
+
+        private void GenerateButton_Click(object sender, EventArgs e)
+        {
+            Customer RandomCustomer = CustomerFactory.CreateRandomCustomer();
+            _customers.Add(RandomCustomer);
+            CustomersListBox.Items.Add(RandomCustomer);
         }
     }
 }

@@ -203,9 +203,11 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-        private void DescriptionLabel_Click(object sender, EventArgs e)
+        private void GenerateButton_Click(object sender, EventArgs e)
         {
-
+            Item RandomItem = ItemFactory.CreateRandomItem();
+            _items.Add(RandomItem);
+            ItemsListBox.Items.Add(RandomItem);
         }
     }
 }

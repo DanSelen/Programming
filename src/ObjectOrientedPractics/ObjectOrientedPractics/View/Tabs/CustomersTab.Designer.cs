@@ -42,6 +42,7 @@
             CustomersListBox = new ListBox();
             CustomersLabel = new Label();
             CustomersPanel = new Panel();
+            GenerateButton = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             SelectedCustomerPanel.SuspendLayout();
             CustomersPanel.SuspendLayout();
@@ -50,7 +51,7 @@
             // 
             // RemoveButton
             // 
-            RemoveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RemoveButton.Anchor = AnchorStyles.Bottom;
             RemoveButton.Location = new Point(109, 512);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(100, 44);
@@ -187,6 +188,7 @@
             // 
             CustomersPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CustomersPanel.BackColor = SystemColors.ControlLightLight;
+            CustomersPanel.Controls.Add(GenerateButton);
             CustomersPanel.Controls.Add(CustomersLabel);
             CustomersPanel.Controls.Add(AddButton);
             CustomersPanel.Controls.Add(RemoveButton);
@@ -196,6 +198,17 @@
             tableLayoutPanel1.SetRowSpan(CustomersPanel, 2);
             CustomersPanel.Size = new Size(315, 572);
             CustomersPanel.TabIndex = 3;
+            // 
+            // GenerateButton
+            // 
+            GenerateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            GenerateButton.Location = new Point(212, 512);
+            GenerateButton.Name = "GenerateButton";
+            GenerateButton.Size = new Size(100, 44);
+            GenerateButton.TabIndex = 4;
+            GenerateButton.Text = "Generate";
+            GenerateButton.UseVisualStyleBackColor = true;
+            GenerateButton.Click += GenerateButton_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -245,5 +258,6 @@
         private Label AddressLabel;
         private Panel CustomersPanel;
         private TableLayoutPanel tableLayoutPanel1;
+        private Button GenerateButton;
     }
 }
