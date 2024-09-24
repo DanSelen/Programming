@@ -49,18 +49,30 @@ namespace ObjectOrientedPractics.View.Tabs
                 MessageBox.Show("Заполните все поля");
                 return;
             }
+            try
+            {
 
-            //Создаем новый экземпляр класса Item 
-            _currentItem = new Item(NameTextBox.Text, DescriptionTextBox.Text, double.Parse(CostTextBox.Text));
+                //Создаем новый экземпляр класса Item 
+                _currentItem = new Item(NameTextBox.Text, DescriptionTextBox.Text, double.Parse(CostTextBox.Text));
 
-            //Добавляем его в список
-            _items.Add(_currentItem);
+                //Добавляем его в список
+                _items.Add(_currentItem);
 
-            //Добавляем его в ListBox
-            ItemsListBox.Items.Add(_currentItem);
+                //Добавляем его в ListBox
+                ItemsListBox.Items.Add(_currentItem);
 
-            //Очищаем поля ввода
-            ClearInputField();
+                //Очищаем поля ввода
+                ClearInputField();
+            }
+            catch (FormatException)
+            {
+                CostTextBox.BackColor = AppColors.ErrorColor;
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Цена не должна превышать 100000");
+                CostTextBox.BackColor = AppColors.ErrorColor;
+            }
         }
 
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,12 +129,28 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 if (!string.IsNullOrEmpty(CostTextBox.Text))
                 {
-                    _currentItem.Cost = double.Parse(CostTextBox.Text);
-                    UpdateListBoxItem();
+                    try
+                    {
+                        _currentItem.Cost = double.Parse(CostTextBox.Text);
+                        UpdateListBoxItem();
 
-                    //Решение проблемы съезжания курсора влево
-                    CostTextBox.Focus();
-                    CostTextBox.Select(CostTextBox.Text.Length, 0);
+                        //Решение проблемы съезжания курсора влево
+                        CostTextBox.Focus();
+                        CostTextBox.Select(CostTextBox.Text.Length, 0);
+                        CostTextBox.BackColor = AppColors.DefaultColor;
+                    }
+
+                    //Если введено значение выходящее за рамки диапазона
+                    catch (ArgumentException)
+                    {
+                        CostTextBox.BackColor = AppColors.ErrorColor;
+                    }
+
+                    //Если введено не числовое значение
+                    catch (FormatException)
+                    {
+                        CostTextBox.BackColor = AppColors.ErrorColor;
+                    }
                 }
             }
         }
@@ -131,29 +159,53 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (_currentItem != null && ItemsListBox.SelectedIndex != -1)
             {
-                if (!string.IsNullOrEmpty(NameTextBox.Text))
+                try
                 {
-                    _currentItem.Name = NameTextBox.Text;
-                    UpdateListBoxItem();
+                    if (!string.IsNullOrEmpty(NameTextBox.Text))
+                    {
+                        _currentItem.Name = NameTextBox.Text;
+                        UpdateListBoxItem();
 
-                    //Решение проблемы съезжания курсора влево
-                    NameTextBox.Focus();
-                    NameTextBox.Select(NameTextBox.Text.Length, 0);
+                        //Решение проблемы съезжания курсора влево
+                        NameTextBox.Focus();
+                        NameTextBox.Select(NameTextBox.Text.Length, 0);
+                        NameTextBox.BackColor = AppColors.DefaultColor;
+                    }
+                }
+                catch (ArgumentException)
+                {
+                    NameTextBox.BackColor = AppColors.ErrorColor;
                 }
             }
         }
 
         private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (_currentItem != null && ItemsListBox.SelectedIndex !=-1 )
+            if (_currentItem != null && ItemsListBox.SelectedIndex != -1)
             {
-                _currentItem.Info = DescriptionTextBox.Text;
-                UpdateListBoxItem();
+                try
+                {
+                    if (!string.IsNullOrEmpty(DescriptionTextBox.Text))
+                    {
+                        _currentItem.Info = DescriptionTextBox.Text;
+                        UpdateListBoxItem();
 
-                //Решение проблемы съезжания курсора влево
-                DescriptionTextBox.Focus();
-                DescriptionTextBox.Select(DescriptionTextBox.Text.Length, 0);
+                        //Решение проблемы съезжания курсора влево
+                        DescriptionTextBox.Focus();
+                        DescriptionTextBox.Select(DescriptionTextBox.Text.Length, 0);
+                        DescriptionTextBox.BackColor = AppColors.DefaultColor;
+                    }
+                }
+                catch (ArgumentException)
+                {
+                    DescriptionTextBox.BackColor = AppColors.ErrorColor;
+                }
             }
+        }
+
+        private void DescriptionLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

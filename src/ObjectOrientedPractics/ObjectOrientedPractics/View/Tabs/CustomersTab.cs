@@ -94,14 +94,21 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (_currentCustomer != null && CustomersListBox.SelectedIndex != -1)
             {
-                if (!string.IsNullOrEmpty(FullNameTextBox.Text))
+                try
                 {
-                    _currentCustomer.FullName = FullNameTextBox.Text;
-                    UpdateListBoxItem();
+                    if (!string.IsNullOrEmpty(FullNameTextBox.Text))
+                    {
+                        _currentCustomer.FullName = FullNameTextBox.Text;
+                        UpdateListBoxItem();
 
-                    //Решение проблемы съезжания курсора влево
-                    FullNameTextBox.Focus();
-                    FullNameTextBox.Select(FullNameTextBox.Text.Length, 0);
+                        //Решение проблемы съезжания курсора влево
+                        FullNameTextBox.Focus();
+                        FullNameTextBox.Select(FullNameTextBox.Text.Length, 0);
+                    }
+                } 
+                catch (ArgumentException)
+                {
+                    FullNameTextBox.BackColor = AppColors.DefaultColor;
                 }
             }
         }
@@ -110,13 +117,20 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (_currentCustomer != null && CustomersListBox.SelectedIndex != -1)
             {
-                if (!string.IsNullOrEmpty(AddressTextBox.Text))
+                try
                 {
-                    _currentCustomer.Address = AddressTextBox.Text;
+                    if (!string.IsNullOrEmpty(AddressTextBox.Text))
+                    {
+                        _currentCustomer.Address = AddressTextBox.Text;
 
-                    //Решение проблемы съезжания курсора влево
-                    AddressTextBox.Focus();
-                    AddressTextBox.Select(AddressTextBox.Text.Length,0);
+                        //Решение проблемы съезжания курсора влево
+                        AddressTextBox.Focus();
+                        AddressTextBox.Select(AddressTextBox.Text.Length, 0);
+                    }
+                }
+                catch(ArgumentException)
+                {
+
                 }
             }
         }

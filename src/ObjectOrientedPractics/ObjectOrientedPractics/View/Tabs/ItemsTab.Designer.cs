@@ -34,11 +34,11 @@
             AddButton = new Button();
             RemoveButton = new Button();
             SelectedItemsPanel = new Panel();
+            DescriptionLabel = new Label();
             DescriptionTextBox = new TextBox();
             NameTextBox = new TextBox();
             CostTextBox = new TextBox();
             IdTextBox = new TextBox();
-            DescriptionLabel = new Label();
             NameLabel = new Label();
             CostLabel = new Label();
             IdLabel = new Label();
@@ -51,25 +51,25 @@
             // 
             // ItemsPanel
             // 
-            ItemsPanel.BackColor = SystemColors.ControlLightLight;
+            ItemsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ItemsPanel.BackColor = SystemColors.ButtonHighlight;
+            ItemsPanel.Controls.Add(RemoveButton);
+            ItemsPanel.Controls.Add(AddButton);
             ItemsPanel.Controls.Add(ItemsListBox);
             ItemsPanel.Controls.Add(ItemsLabel);
-            ItemsPanel.Controls.Add(AddButton);
-            ItemsPanel.Controls.Add(RemoveButton);
-            ItemsPanel.Dock = DockStyle.Fill;
             ItemsPanel.Location = new Point(3, 3);
             ItemsPanel.Name = "ItemsPanel";
-            ItemsPanel.Size = new Size(324, 572);
+            ItemsPanel.Size = new Size(322, 572);
             ItemsPanel.TabIndex = 9;
             // 
             // ItemsListBox
             // 
-            ItemsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            ItemsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ItemsListBox.FormattingEnabled = true;
             ItemsListBox.ItemHeight = 15;
             ItemsListBox.Location = new Point(5, 43);
             ItemsListBox.Name = "ItemsListBox";
-            ItemsListBox.Size = new Size(310, 469);
+            ItemsListBox.Size = new Size(308, 469);
             ItemsListBox.TabIndex = 0;
             ItemsListBox.MouseClick += ItemsListBox_MouseClick;
             ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
@@ -108,41 +108,51 @@
             // 
             // SelectedItemsPanel
             // 
-            SelectedItemsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            SelectedItemsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             SelectedItemsPanel.BackColor = SystemColors.ButtonHighlight;
-            SelectedItemsPanel.Controls.Add(DescriptionTextBox);
-            SelectedItemsPanel.Controls.Add(NameTextBox);
-            SelectedItemsPanel.Controls.Add(CostTextBox);
-            SelectedItemsPanel.Controls.Add(IdTextBox);
-            SelectedItemsPanel.Controls.Add(DescriptionLabel);
-            SelectedItemsPanel.Controls.Add(NameLabel);
-            SelectedItemsPanel.Controls.Add(CostLabel);
-            SelectedItemsPanel.Controls.Add(IdLabel);
             SelectedItemsPanel.Controls.Add(SelectedItemLabel);
-            SelectedItemsPanel.Location = new Point(333, 3);
+            SelectedItemsPanel.Controls.Add(IdLabel);
+            SelectedItemsPanel.Controls.Add(IdTextBox);
+            SelectedItemsPanel.Controls.Add(CostTextBox);
+            SelectedItemsPanel.Controls.Add(CostLabel);
+            SelectedItemsPanel.Controls.Add(DescriptionTextBox);
+            SelectedItemsPanel.Controls.Add(NameLabel);
+            SelectedItemsPanel.Controls.Add(DescriptionLabel);
+            SelectedItemsPanel.Controls.Add(NameTextBox);
+            SelectedItemsPanel.Location = new Point(331, 3);
             SelectedItemsPanel.Name = "SelectedItemsPanel";
-            SelectedItemsPanel.Size = new Size(585, 572);
+            SelectedItemsPanel.Size = new Size(587, 572);
             SelectedItemsPanel.TabIndex = 10;
+            // 
+            // DescriptionLabel
+            // 
+            DescriptionLabel.AutoSize = true;
+            DescriptionLabel.Location = new Point(13, 230);
+            DescriptionLabel.Name = "DescriptionLabel";
+            DescriptionLabel.Size = new Size(70, 15);
+            DescriptionLabel.TabIndex = 4;
+            DescriptionLabel.Text = "Description:";
+            DescriptionLabel.Click += DescriptionLabel_Click;
             // 
             // DescriptionTextBox
             // 
-            DescriptionTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            DescriptionTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DescriptionTextBox.Location = new Point(18, 248);
             DescriptionTextBox.MinimumSize = new Size(125, 75);
             DescriptionTextBox.Multiline = true;
             DescriptionTextBox.Name = "DescriptionTextBox";
-            DescriptionTextBox.Size = new Size(549, 223);
+            DescriptionTextBox.Size = new Size(551, 223);
             DescriptionTextBox.TabIndex = 8;
             DescriptionTextBox.TextChanged += DescriptionTextBox_TextChanged;
             // 
             // NameTextBox
             // 
-            NameTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            NameTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             NameTextBox.Location = new Point(18, 138);
             NameTextBox.MinimumSize = new Size(125, 75);
             NameTextBox.Multiline = true;
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.Size = new Size(549, 75);
+            NameTextBox.Size = new Size(551, 75);
             NameTextBox.TabIndex = 7;
             NameTextBox.TextChanged += NameTextBox_TextChanged;
             // 
@@ -161,15 +171,6 @@
             IdTextBox.Name = "IdTextBox";
             IdTextBox.Size = new Size(100, 23);
             IdTextBox.TabIndex = 5;
-            // 
-            // DescriptionLabel
-            // 
-            DescriptionLabel.AutoSize = true;
-            DescriptionLabel.Location = new Point(13, 230);
-            DescriptionLabel.Name = "DescriptionLabel";
-            DescriptionLabel.Size = new Size(70, 15);
-            DescriptionLabel.TabIndex = 4;
-            DescriptionLabel.Text = "Description:";
             // 
             // NameLabel
             // 
@@ -212,8 +213,8 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.83062F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.16938F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.6134644F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.3865356F));
             tableLayoutPanel1.Controls.Add(SelectedItemsPanel, 1, 0);
             tableLayoutPanel1.Controls.Add(ItemsPanel, 0, 0);
             tableLayoutPanel1.Location = new Point(3, 3);
