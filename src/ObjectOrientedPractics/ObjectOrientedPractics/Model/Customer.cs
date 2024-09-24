@@ -85,5 +85,11 @@ namespace ObjectOrientedPractics.Model
             Address = address;
             _id = IdGenerator.GetNextId();
         }
+
+        public override string ToString()
+        {
+            return $"{Id} - {FullName} - {Address}";
+        }
+
     }
 }

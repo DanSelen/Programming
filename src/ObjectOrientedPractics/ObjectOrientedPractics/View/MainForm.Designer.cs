@@ -66,7 +66,7 @@
             ItemsTab1.Location = new Point(3, 3);
             ItemsTab1.MinimumSize = new Size(400, 400);
             ItemsTab1.Name = "ItemsTab1";
-            ItemsTab1.Size = new Size(950, 597);
+            ItemsTab1.Size = new Size(947, 597);
             ItemsTab1.TabIndex = 0;
             // 
             // TabPage2
@@ -85,7 +85,7 @@
             customersTab1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customersTab1.Location = new Point(3, 3);
             customersTab1.Name = "customersTab1";
-            customersTab1.Size = new Size(950, 597);
+            customersTab1.Size = new Size(948, 597);
             customersTab1.TabIndex = 0;
             // 
             // MainForm
@@ -95,6 +95,7 @@
             ClientSize = new Size(964, 631);
             Controls.Add(TabControl);
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             TabControl.ResumeLayout(false);
             TabPage1.ResumeLayout(false);

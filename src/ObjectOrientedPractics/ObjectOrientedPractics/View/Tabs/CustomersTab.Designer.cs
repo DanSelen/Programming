@@ -49,22 +49,24 @@
             // RemoveButton
             // 
             RemoveButton.Dock = DockStyle.Fill;
-            RemoveButton.Location = new Point(111, 527);
+            RemoveButton.Location = new Point(117, 527);
             RemoveButton.Name = "RemoveButton";
-            RemoveButton.Size = new Size(103, 47);
+            RemoveButton.Size = new Size(109, 46);
             RemoveButton.TabIndex = 1;
             RemoveButton.Text = "Remove";
             RemoveButton.UseVisualStyleBackColor = true;
+            RemoveButton.Click += RemoveButton_Click;
             // 
             // AddButton
             // 
             AddButton.Dock = DockStyle.Fill;
             AddButton.Location = new Point(3, 527);
             AddButton.Name = "AddButton";
-            AddButton.Size = new Size(102, 47);
+            AddButton.Size = new Size(108, 46);
             AddButton.TabIndex = 0;
             AddButton.Text = "Add";
             AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
             // 
             // SelectedCustomerPanel
             // 
@@ -77,9 +79,9 @@
             SelectedCustomerPanel.Controls.Add(AddressTextBox);
             SelectedCustomerPanel.Controls.Add(FullNameTextBox);
             SelectedCustomerPanel.Controls.Add(IdTextBox);
-            SelectedCustomerPanel.Location = new Point(336, 3);
+            SelectedCustomerPanel.Location = new Point(348, 3);
             SelectedCustomerPanel.Name = "SelectedCustomerPanel";
-            SelectedCustomerPanel.Size = new Size(589, 190);
+            SelectedCustomerPanel.Size = new Size(578, 198);
             SelectedCustomerPanel.TabIndex = 1;
             // 
             // AddressLabel
@@ -123,10 +125,12 @@
             // 
             AddressTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             AddressTextBox.Location = new Point(83, 92);
+            AddressTextBox.MinimumSize = new Size(100, 95);
             AddressTextBox.Multiline = true;
             AddressTextBox.Name = "AddressTextBox";
-            AddressTextBox.Size = new Size(477, 95);
+            AddressTextBox.Size = new Size(468, 95);
             AddressTextBox.TabIndex = 2;
+            AddressTextBox.TextChanged += AddressTextBox_TextChanged;
             // 
             // FullNameTextBox
             // 
@@ -134,9 +138,11 @@
             FullNameTextBox.Name = "FullNameTextBox";
             FullNameTextBox.Size = new Size(100, 23);
             FullNameTextBox.TabIndex = 1;
+            FullNameTextBox.TextChanged += FullNameTextBox_TextChanged;
             // 
             // IdTextBox
             // 
+            IdTextBox.Enabled = false;
             IdTextBox.Location = new Point(83, 34);
             IdTextBox.Name = "IdTextBox";
             IdTextBox.Size = new Size(100, 23);
@@ -146,9 +152,9 @@
             // 
             Panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Panel2.BackColor = SystemColors.ButtonHighlight;
-            Panel2.Location = new Point(336, 199);
+            Panel2.Location = new Point(348, 207);
             Panel2.Name = "Panel2";
-            Panel2.Size = new Size(589, 381);
+            Panel2.Size = new Size(576, 374);
             Panel2.TabIndex = 2;
             // 
             // CustomersLabel
@@ -159,7 +165,7 @@
             CustomersLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             CustomersLabel.Location = new Point(3, 0);
             CustomersLabel.Name = "CustomersLabel";
-            CustomersLabel.Size = new Size(102, 21);
+            CustomersLabel.Size = new Size(108, 21);
             CustomersLabel.TabIndex = 2;
             CustomersLabel.Text = "Customers";
             CustomersLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -172,8 +178,10 @@
             CustomersListBox.ItemHeight = 15;
             CustomersListBox.Location = new Point(3, 24);
             CustomersListBox.Name = "CustomersListBox";
-            CustomersListBox.Size = new Size(321, 497);
+            CustomersListBox.Size = new Size(339, 497);
             CustomersListBox.TabIndex = 3;
+            CustomersListBox.MouseClick += CustomersListBox_MouseClick;
+            CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
             // CustomersTableLayoutPanel
             // 
@@ -187,13 +195,13 @@
             CustomersTableLayoutPanel.Controls.Add(CustomersListBox, 0, 1);
             CustomersTableLayoutPanel.Controls.Add(AddButton, 0, 2);
             CustomersTableLayoutPanel.Controls.Add(CustomersLabel, 0, 0);
-            CustomersTableLayoutPanel.Location = new Point(3, 3);
+            CustomersTableLayoutPanel.Location = new Point(3, 4);
             CustomersTableLayoutPanel.Name = "CustomersTableLayoutPanel";
             CustomersTableLayoutPanel.RowCount = 3;
             CustomersTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 3.63951468F));
             CustomersTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 87.17504F));
             CustomersTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 9.012132F));
-            CustomersTableLayoutPanel.Size = new Size(327, 577);
+            CustomersTableLayoutPanel.Size = new Size(345, 576);
             CustomersTableLayoutPanel.TabIndex = 3;
             // 
             // CustomersTab

@@ -22,7 +22,7 @@ namespace ObjectOrientedPractics.Services
         /// <returns>Возвращает следующий уникальный идентификатор.</returns>
         public static int GetNextId()
         {
-            return ++_counter;
+            return _counter++;
         }
     }
 }

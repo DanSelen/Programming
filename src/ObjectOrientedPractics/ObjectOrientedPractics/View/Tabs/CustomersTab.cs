@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,94 @@ namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class CustomersTab : UserControl
     {
+        List<Customer> _customers = new List<Customer>();
+        private Customer _currentCustomer;
+
         public CustomersTab()
         {
             InitializeComponent();
+        }
+
+        private void ClearInputField()
+        {
+            IdTextBox.Clear();
+            FullNameTextBox.Clear();
+            AddressTextBox.Clear();
+            IdTextBox.BackColor = AppColors.DefaultColor;
+            FullNameTextBox.BackColor = AppColors.DefaultColor;
+            AddressTextBox.BackColor = AppColors.DefaultColor;
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(FullNameTextBox.Text) || string.IsNullOrEmpty(AddressTextBox.Text))
+            {
+                MessageBox.Show("Заполните все поля");
+                return;
+            }
+
+            _currentCustomer = new Customer(FullNameTextBox.Text, AddressTextBox.Text);
+            _customers.Add(_currentCustomer);
+            CustomersListBox.Items.Add(_currentCustomer);
+
+            ClearInputField();
+        }
+
+        private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CustomersListBox.SelectedIndex != -1)
+            {
+                _currentCustomer = _customers[CustomersListBox.SelectedIndex];
+
+                IdTextBox.Text = _currentCustomer.Id.ToString();
+                FullNameTextBox.Text = _currentCustomer.FullName;
+                AddressTextBox.Text = _currentCustomer.Address;
+            }
+            else
+            {
+                ClearInputField();
+            }
+        }
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            if (CustomersListBox.SelectedIndex != -1)
+            {
+                _currentCustomer = _customers[CustomersListBox.SelectedIndex];
+                _customers.Remove(_currentCustomer);
+                CustomersListBox.Items.RemoveAt(CustomersListBox.SelectedIndex);
+                ClearInputField();
+            }
+        }
+
+        private void CustomersListBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (CustomersListBox.IndexFromPoint(e.Location) == -1)
+            {
+                CustomersListBox.ClearSelected();
+            }
+        }
+
+        private void FullNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (_currentCustomer != null && CustomersListBox.SelectedIndex != -1)
+            {
+                if (!string.IsNullOrEmpty(FullNameTextBox.Text))
+                {
+                    _currentCustomer.FullName = FullNameTextBox.Text;
+                }
+            }
+        }
+
+        private void AddressTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (_currentCustomer != null && CustomersListBox.SelectedIndex != -1)
+            {
+                if (!string.IsNullOrEmpty(AddressTextBox.Text))
+                {
+                    _currentCustomer.Address = AddressTextBox.Text;
+                }
+            }
         }
     }
 }
