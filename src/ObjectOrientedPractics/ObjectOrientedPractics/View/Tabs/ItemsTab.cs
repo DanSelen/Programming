@@ -32,6 +32,15 @@ namespace ObjectOrientedPractics.View.Tabs
             NameTextBox.BackColor = AppColors.DefaultColor;
             DescriptionTextBox.BackColor = AppColors.DefaultColor;
         }
+
+        private void UpdateListBoxItem()
+        {
+            if (_currentItem != null && ItemsListBox.SelectedIndex != -1)
+            {
+                ItemsListBox.Items[ItemsListBox.SelectedIndex] = _currentItem;
+            }
+        }
+
         private void AddButton_Click(object sender, EventArgs e)
         {
             //Если поля заполнены выводим сообщение
@@ -109,7 +118,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (!string.IsNullOrEmpty(CostTextBox.Text))
                 {
                     _currentItem.Cost = double.Parse(CostTextBox.Text);
+                    UpdateListBoxItem();
 
+                    //Решение проблемы съезжания курсора влево
+                    CostTextBox.Focus();
+                    CostTextBox.Select(CostTextBox.Text.Length, 0);
                 }
             }
         }
@@ -121,6 +134,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (!string.IsNullOrEmpty(NameTextBox.Text))
                 {
                     _currentItem.Name = NameTextBox.Text;
+                    UpdateListBoxItem();
+
+                    //Решение проблемы съезжания курсора влево
+                    NameTextBox.Focus();
+                    NameTextBox.Select(NameTextBox.Text.Length, 0);
                 }
             }
         }
@@ -130,6 +148,11 @@ namespace ObjectOrientedPractics.View.Tabs
             if (_currentItem != null && ItemsListBox.SelectedIndex !=-1 )
             {
                 _currentItem.Info = DescriptionTextBox.Text;
+                UpdateListBoxItem();
+
+                //Решение проблемы съезжания курсора влево
+                DescriptionTextBox.Focus();
+                DescriptionTextBox.Select(DescriptionTextBox.Text.Length, 0);
             }
         }
     }

@@ -22,6 +22,14 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
         }
 
+        private void UpdateListBoxItem()
+        {
+            if (_currentCustomer != null && CustomersListBox.SelectedIndex != -1)
+            {
+                CustomersListBox.Items[CustomersListBox.SelectedIndex] = _currentCustomer;
+            }
+        }
+
         private void ClearInputField()
         {
             IdTextBox.Clear();
@@ -89,6 +97,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (!string.IsNullOrEmpty(FullNameTextBox.Text))
                 {
                     _currentCustomer.FullName = FullNameTextBox.Text;
+                    UpdateListBoxItem();
+
+                    //Решение проблемы съезжания курсора влево
+                    FullNameTextBox.Focus();
+                    FullNameTextBox.Select(FullNameTextBox.Text.Length, 0);
                 }
             }
         }
@@ -100,6 +113,10 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (!string.IsNullOrEmpty(AddressTextBox.Text))
                 {
                     _currentCustomer.Address = AddressTextBox.Text;
+
+                    //Решение проблемы съезжания курсора влево
+                    AddressTextBox.Focus();
+                    AddressTextBox.Select(AddressTextBox.Text.Length,0);
                 }
             }
         }
