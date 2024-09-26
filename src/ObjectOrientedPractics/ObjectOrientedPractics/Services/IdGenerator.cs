@@ -23,6 +23,6 @@ namespace ObjectOrientedPractics.Services
         public static int GetNextId()
         {
             return _counter++;
-        }
+        } 
     }
 }
