@@ -15,11 +15,15 @@ namespace ObjectOrientedPractics.View.Tabs
     public partial class ItemsTab : UserControl
     {
         List<Item> _items = new List<Item>();
-        private Item _currentItem;
+
+        //new Item чтобы _currentItem != null при иннициализации
+        private Item _currentItem = new Item();
+
         public ItemsTab()
         {
             InitializeComponent();
             InitializeCombobox(CategoryComboBox, typeof(Category));
+            Address address = new Address();
         }
 
         /// <summary>
@@ -227,7 +231,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ItemsListBox.SelectedIndex != -1)
+            if (_currentItem != null && ItemsListBox.SelectedIndex != -1)
             {
                 _currentItem.Category = (Category)CategoryComboBox.SelectedIndex;
                 UpdateListBoxItem();

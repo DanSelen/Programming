@@ -22,12 +22,12 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Полное имя клиента.
         /// </summary>
-        private string _fullName;
+        private string _fullName = string.Empty;
 
         /// <summary>
         /// Адрес клиента.
         /// </summary>
-        private string _address;
+        private string _address = string.Empty;
 
         /// <summary>
         /// Получает или задает полное имя клиента.

@@ -22,12 +22,12 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Название товара.
         /// </summary>
-        private string _name;
+        private string _name = string.Empty;
 
         /// <summary>
         /// Описание товара.
         /// </summary>
-        private string _info;
+        private string _info = string.Empty;
 
         /// <summary>
         /// Стоимость товара.
@@ -118,6 +118,14 @@ namespace ObjectOrientedPractics.Model
             Category = category;
             Info = info;
             Cost = cost;
+            _id = IdGenerator.GetNextId();
+        }
+        public Item ()
+        {
+            Name= string.Empty;
+            Category = Category.Electronics;
+            Info = string.Empty;
+            Cost = 0;
             _id = IdGenerator.GetNextId();
         }
         public override string ToString()
