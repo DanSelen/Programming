@@ -20,7 +20,7 @@ namespace ObjectOrientedPractics.Services
             string RandomDescription = SampleDescriptions[_random.Next(SampleDescriptions.Length)];
             double RandomCost = Math.Round(_random.NextDouble() * 1000, 2); 
 
-            return new Item(RandomName, RandomDescription, RandomCost);
+            return new Item(RandomName,Category.Electronics, RandomDescription, RandomCost);
         }
     }
 }

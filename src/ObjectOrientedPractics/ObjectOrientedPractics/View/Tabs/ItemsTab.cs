@@ -19,6 +19,21 @@ namespace ObjectOrientedPractics.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
+            InitializeCombobox(CategoryComboBox, typeof(Category));
+        }
+
+        /// <summary>
+        /// Инициализация комбобокса значениями
+        /// </summary>
+        /// <param name="comboBox">ComboBox, который мы инициализируем</param>
+        /// <param name="enumType">typeof перечисления</param>
+        private void InitializeCombobox(ComboBox comboBox, Type enumType)
+        {
+            foreach (var value in Enum.GetValues(enumType))
+            {
+                comboBox.Items.Add(value);
+            }
+            comboBox.SelectedIndex = -1;
         }
 
         private void ClearInputField()
@@ -31,6 +46,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CostTextBox.BackColor = AppColors.DefaultColor;
             NameTextBox.BackColor = AppColors.DefaultColor;
             DescriptionTextBox.BackColor = AppColors.DefaultColor;
+            CategoryComboBox.SelectedIndex = -1;
         }
 
         private void UpdateListBoxItem()
@@ -44,7 +60,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private void AddButton_Click(object sender, EventArgs e)
         {
             //Если поля заполнены выводим сообщение
-            if (string.IsNullOrEmpty(CostTextBox.Text) || string.IsNullOrEmpty(NameTextBox.Text) || string.IsNullOrEmpty(DescriptionTextBox.Text))
+            if (string.IsNullOrEmpty(CostTextBox.Text) || string.IsNullOrEmpty(NameTextBox.Text) || string.IsNullOrEmpty(DescriptionTextBox.Text) || string.IsNullOrEmpty(CategoryComboBox.Text))
             {
                 MessageBox.Show("Заполните все поля");
                 return;
@@ -53,7 +69,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
 
                 //Создаем новый экземпляр класса Item 
-                _currentItem = new Item(NameTextBox.Text, DescriptionTextBox.Text, double.Parse(CostTextBox.Text));
+                _currentItem = new Item(NameTextBox.Text, (Category)CategoryComboBox.SelectedIndex, DescriptionTextBox.Text, double.Parse(CostTextBox.Text));
 
                 //Добавляем его в список
                 _items.Add(_currentItem);
@@ -87,6 +103,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 NameTextBox.Text = _currentItem.Name;
                 CostTextBox.Text = _currentItem.Cost.ToString();
                 DescriptionTextBox.Text = _currentItem.Info;
+                CategoryComboBox.SelectedIndex = (int)_currentItem.Category;
             }
             else
             {
@@ -112,8 +129,6 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-
-        //???????
         private void ItemsListBox_MouseClick(object sender, MouseEventArgs e)
         {
             if (ItemsListBox.IndexFromPoint(e.Location) == -1)
@@ -208,6 +223,15 @@ namespace ObjectOrientedPractics.View.Tabs
             Item RandomItem = ItemFactory.CreateRandomItem();
             _items.Add(RandomItem);
             ItemsListBox.Items.Add(RandomItem);
+        }
+
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedIndex != -1)
+            {
+                _currentItem.Category = (Category)CategoryComboBox.SelectedIndex;
+                UpdateListBoxItem();
+            }
         }
     }
 }

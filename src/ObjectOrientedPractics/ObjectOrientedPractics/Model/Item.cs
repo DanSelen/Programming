@@ -35,12 +35,18 @@ namespace ObjectOrientedPractics.Model
         private double _cost;
 
         /// <summary>
+        /// Категория товара
+        /// </summary>
+        public Category Category { get; set; }
+
+        /// <summary>
         /// Получает или задает название товара.
         /// Валидация происходит с помощью <see cref="ValueValidator.AssertStringOnLength"/>.
         /// </summary>
         /// <exception cref="ArgumentException">
         /// Выбрасывается, если длина названия превышает 200 символов.
         /// </exception>
+        /// 
         public string Name
         {
             get
@@ -105,16 +111,18 @@ namespace ObjectOrientedPractics.Model
         /// <param name="name">Название товара.</param>
         /// <param name="info">Описание товара.</param>
         /// <param name="cost">Стоимость товара.</param>
-        public Item(string name, string info, double cost)
+        /// <param name="category">Категория товара</param>
+        public Item(string name,Category category, string info, double cost)
         {
             Name = name;
+            Category = category;
             Info = info;
             Cost = cost;
             _id = IdGenerator.GetNextId();
         }
         public override string ToString()
         {
-            return $"{Id} - {Name} - {Info} - {Cost}";
+            return $"{Id} - {Name} -{Category} - {Info} - {Cost}";
         }
     }
 }
