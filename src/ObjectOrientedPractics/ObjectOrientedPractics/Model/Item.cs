@@ -128,6 +128,7 @@ namespace ObjectOrientedPractics.Model
             Cost = 0;
             _id = IdGenerator.GetNextId();
         }
+
         public override string ToString()
         {
             return $"{Id} - {Name} -{Category} - {Info} - {Cost}";

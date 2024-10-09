@@ -125,5 +125,9 @@ namespace ObjectOrientedPractics.Model
             Building= building;
             Apartment= apartment;
         }
+        public override string ToString()
+        {
+            return $"{Country}";
+        }
     }
 }

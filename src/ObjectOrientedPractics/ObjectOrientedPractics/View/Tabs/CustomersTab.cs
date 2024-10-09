@@ -1,5 +1,6 @@
 ﻿using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,15 @@ namespace ObjectOrientedPractics.View.Tabs
     public partial class CustomersTab : UserControl
     {
         List<Customer> _customers = new List<Customer>();
-        private Customer _currentCustomer;
+        private Customer _currentCustomer = new Customer();
 
         public CustomersTab()
         {
             InitializeComponent();
+
         }
+
+
 
         private void UpdateListBoxItem()
         {
@@ -34,25 +38,24 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Clear();
             FullNameTextBox.Clear();
-            AddressTextBox.Clear();
+            AddressControl1.Clear();//AddressTextBox.Clear();
             IdTextBox.BackColor = AppColors.DefaultColor;
             FullNameTextBox.BackColor = AppColors.DefaultColor;
-            AddressTextBox.BackColor = AppColors.DefaultColor;
+            //AddressTextBox.BackColor = AppColors.DefaultColor;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(FullNameTextBox.Text) || string.IsNullOrEmpty(AddressTextBox.Text))
+            if (string.IsNullOrEmpty(FullNameTextBox.Text) || AddressControl1.AddressIsNullOrEmpty()  /*string.IsNullOrEmpty(AddressTextBox.Text*/ )
             {
                 MessageBox.Show("Заполните все поля");
                 return;
             }
 
-            _currentCustomer = new Customer(FullNameTextBox.Text, AddressTextBox.Text);
+            _currentCustomer = new Customer(FullNameTextBox.Text, AddressControl1.Address);
             _customers.Add(_currentCustomer);
             CustomersListBox.Items.Add(_currentCustomer);
-
-            ClearInputField();
+            UpdateListBoxItem();
         }
 
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,11 +66,11 @@ namespace ObjectOrientedPractics.View.Tabs
 
                 IdTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
-                AddressTextBox.Text = _currentCustomer.Address;
+                AddressControl1.Address = _currentCustomer.Address;//AddressTextBox.Text = _currentCustomer.Address;
             }
             else
             {
-                ClearInputField();
+
             }
         }
 
@@ -96,7 +99,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 try
                 {
-                    if (!string.IsNullOrEmpty(FullNameTextBox.Text))
+                    if (!string.IsNullOrEmpty(FullNameTextBox.Text) && !AddressControl1.AddressIsNullOrEmpty() )
                     {
                         _currentCustomer.FullName = FullNameTextBox.Text;
                         UpdateListBoxItem();
@@ -112,7 +115,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
             }
         }
-
+        /*
         private void AddressTextBox_TextChanged(object sender, EventArgs e)
         {
             if (_currentCustomer != null && CustomersListBox.SelectedIndex != -1)
@@ -134,6 +137,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
             }
         }
+        */
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {

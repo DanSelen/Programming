@@ -104,6 +104,7 @@
             PostIndexTextBox.Name = "PostIndexTextBox";
             PostIndexTextBox.Size = new Size(99, 23);
             PostIndexTextBox.TabIndex = 6;
+            PostIndexTextBox.TextChanged += PostIndexTextBox_TextChanged;
             // 
             // CountryTextBox
             // 
@@ -111,6 +112,7 @@
             CountryTextBox.Name = "CountryTextBox";
             CountryTextBox.Size = new Size(201, 23);
             CountryTextBox.TabIndex = 7;
+            CountryTextBox.TextChanged += CountryTextBox_TextChanged;
             // 
             // BuildingTextBox
             // 
@@ -118,6 +120,7 @@
             BuildingTextBox.Name = "BuildingTextBox";
             BuildingTextBox.Size = new Size(100, 23);
             BuildingTextBox.TabIndex = 8;
+            BuildingTextBox.TextChanged += BuildingTextBox_TextChanged;
             // 
             // CityTextBox
             // 
@@ -125,6 +128,7 @@
             CityTextBox.Name = "CityTextBox";
             CityTextBox.Size = new Size(150, 23);
             CityTextBox.TabIndex = 9;
+            CityTextBox.TextChanged += CityTextBox_TextChanged;
             // 
             // ApartmentTextBox
             // 
@@ -132,6 +136,7 @@
             ApartmentTextBox.Name = "ApartmentTextBox";
             ApartmentTextBox.Size = new Size(100, 23);
             ApartmentTextBox.TabIndex = 10;
+            ApartmentTextBox.TextChanged += ApartmentTextBox_TextChanged;
             // 
             // StreetLabel
             // 
@@ -148,6 +153,7 @@
             StreetTextBox.Name = "StreetTextBox";
             StreetTextBox.Size = new Size(395, 23);
             StreetTextBox.TabIndex = 12;
+            StreetTextBox.TextChanged += StreetTextBox_TextChanged;
             // 
             // AddressControl
             // 

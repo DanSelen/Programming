@@ -14,10 +14,14 @@ namespace ObjectOrientedPractics.Services
         public static Customer CreateRandomCustomer()
         {
             string[] SampleFullNames = { "Веденеев Василий Никандрович", "Пастух Тимофей Афанасьевич", "Бельтюкова Сюзанна Ивановна", "Цедлиц Федор Никифорович", "Козин Давид Себастьянович" };
-            string[] SampleAddresses = { "Россия, г. Казань, Колхозный пер., д. 10 кв.10", "Россия, г. Уфа, Чкалова ул., д. 7 кв.74", "Россия, г. Салават, Дачная ул., д. 13 кв.216" };
+            Address[] SampleAddresses = {
+            new Address(420000, "Россия", "Казань", "Колхозный пер.", "10", "10"),
+            new Address(450000, "Россия", "Уфа", "Чкалова ул.", "7", "74"),
+            new Address(453000, "Россия", "Салават", "Дачная ул.", "13", "216")
+        };
 
             string RandomFullName = SampleFullNames[_random.Next(SampleFullNames.Length)];
-            string RandomAddress = SampleAddresses[_random.Next(SampleAddresses.Length)];
+            Address RandomAddress = SampleAddresses[_random.Next(SampleAddresses.Length)];
 
             return new Customer(RandomFullName, RandomAddress);
         }

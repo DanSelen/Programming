@@ -27,7 +27,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Адрес клиента.
         /// </summary>
-        private string _address = string.Empty;
+        private Address _address = new Address();
 
         /// <summary>
         /// Получает или задает полное имя клиента.
@@ -56,7 +56,7 @@ namespace ObjectOrientedPractics.Model
         /// <exception cref="ArgumentException">
         /// Выбрасывается, если длина адреса превышает 500 символов.
         /// </exception>
-        public string Address
+        public Address Address
         {
             get
             {
@@ -64,7 +64,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 500,nameof(Address));
+                //Валидцаию сделать отдельно
                 _address = value;
             }
         }
@@ -79,11 +79,17 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         /// <param name="fullName">Полное имя клиента.</param>
         /// <param name="address">Адрес клиента.</param>
-        public Customer(string fullName, string address)
+        public Customer(string fullName, Address address)
         {
             FullName = fullName;
             Address = address;
             _id = IdGenerator.GetNextId();
+        }
+        public Customer()
+        {
+            FullName = string.Empty; // Инициализируем пустой строкой
+            Address = new Address(); // Инициализируем новый экземпляр Address
+            _id = IdGenerator.GetNextId(); // Генерируем новый Id
         }
 
         public override string ToString()
