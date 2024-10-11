@@ -19,11 +19,11 @@ namespace ObjectOrientedPractics.View.Tabs
         //new Item чтобы _currentItem != null при иннициализации
         private Item _currentItem = new Item();
 
+
         public ItemsTab()
         {
             InitializeComponent();
             InitializeCombobox(CategoryComboBox, typeof(Category));
-            Address address = new Address();
         }
 
         /// <summary>
@@ -50,7 +50,6 @@ namespace ObjectOrientedPractics.View.Tabs
             CostTextBox.BackColor = AppColors.DefaultColor;
             NameTextBox.BackColor = AppColors.DefaultColor;
             DescriptionTextBox.BackColor = AppColors.DefaultColor;
-            CategoryComboBox.SelectedIndex = -1;
         }
 
         private void UpdateListBoxItem()
@@ -111,7 +110,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
             else
             {
-                ClearInputField();
+                
             }
         }
 
@@ -139,6 +138,8 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 // Если кликнули на пустое место, сбрасываем выбор
                 ItemsListBox.ClearSelected();
+                _currentItem = new Item();
+                ClearInputField();
             }
         }
 

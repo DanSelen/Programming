@@ -15,37 +15,36 @@ namespace ObjectOrientedPractics.View.Controls
 {
     public partial class AddressControl : UserControl
     {
-        private Address _address = new Address();
+        private Address _currentAddress;
+
+        //Для обновления коректного обновления Address полей
+        public bool IsUpdatingFieldFlag = true; 
         public Address Address
         {
             get
             {
-                return _address;
+                return _currentAddress;
             }
             set
             {
-                _address = value;
-                if (_address != null)
-                {
-                    // Обновляем текстбоксы, используя значения из Address
-                    UpdateAddressFields();
-                }
+                _currentAddress = value;
+                UpdateAddressFields();
             }
         }
         public AddressControl()
         {
             InitializeComponent();
-            UpdateAddressFields();
+            Address = new Address();
         }
 
-        private void UpdateAddressFields()
+        public void UpdateAddressFields()
         {
-            PostIndexTextBox.Text = _address.Index.ToString();
-            CountryTextBox.Text = _address.Country.ToString();
-            CityTextBox.Text = _address.City.ToString();
-            StreetTextBox.Text = _address.Street.ToString();
-            BuildingTextBox.Text = _address.Building.ToString();
-            ApartmentTextBox.Text = _address.Apartment.ToString();
+            PostIndexTextBox.Text = Address.Index.ToString();
+            CountryTextBox.Text = Address.Country;
+            CityTextBox.Text = Address.City.ToString();
+            StreetTextBox.Text = Address.Street.ToString();
+            BuildingTextBox.Text = Address.Building.ToString();
+            ApartmentTextBox.Text = Address.Apartment.ToString();
         }
         public bool AddressIsNullOrEmpty()
         {
@@ -66,22 +65,16 @@ namespace ObjectOrientedPractics.View.Controls
         public void Clear()
         {
             PostIndexTextBox.Clear();
-            PostIndexTextBox.BackColor = AppColors.DefaultColor;
             CountryTextBox.Clear();
-            CountryTextBox.BackColor = AppColors.DefaultColor;
             CityTextBox.Clear();
-            CityTextBox.BackColor = AppColors.DefaultColor;
             StreetTextBox.Clear();
-            StreetTextBox.BackColor = AppColors.DefaultColor;
             BuildingTextBox.Clear();
-            BuildingTextBox.BackColor = AppColors.DefaultColor;
             ApartmentTextBox.Clear();
-            ApartmentTextBox.BackColor = AppColors.DefaultColor;
         }
 
         private void PostIndexTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (_address != null)
+            if (_currentAddress != null )
             {
                 try
                 {
@@ -105,23 +98,23 @@ namespace ObjectOrientedPractics.View.Controls
 
         private void CountryTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (_address != null)
+            if ( IsUpdatingFieldFlag == true)
+            { 
+            try
             {
-                try
-                {
-                    Address.Country = CountryTextBox.Text;
-                    CountryTextBox.BackColor = AppColors.DefaultColor;
-                }
-                catch (ArgumentException)
-                {
-                    CountryTextBox.BackColor = AppColors.ErrorColor;
-                }
+                Address.Country = CountryTextBox.Text;
+                CountryTextBox.BackColor = AppColors.DefaultColor;
+            }
+            catch (ArgumentException)
+            {
+                CountryTextBox.BackColor = AppColors.ErrorColor;
+            }
             }
         }
 
         private void StreetTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (_address != null)
+            if (IsUpdatingFieldFlag == true)
             {
                 try
                 {
@@ -138,23 +131,23 @@ namespace ObjectOrientedPractics.View.Controls
 
         private void CityTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (_address != null)
+            if (IsUpdatingFieldFlag == true)
             {
                 try
                 {
                     Address.City = CityTextBox.Text;
                     CityTextBox.BackColor = AppColors.DefaultColor;
                 }
-                catch(ArgumentException)
+                catch (ArgumentException)
                 {
-                    CityTextBox.BackColor= AppColors.ErrorColor;
+                    CityTextBox.BackColor = AppColors.ErrorColor;
                 }
             }
         }
 
         private void BuildingTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (_address != null)
+            if (IsUpdatingFieldFlag == true)
             {
                 try
                 {
@@ -170,18 +163,19 @@ namespace ObjectOrientedPractics.View.Controls
 
         private void ApartmentTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (_address != null)
+            if (IsUpdatingFieldFlag == true)
             {
                 try
                 {
                     Address.Apartment = ApartmentTextBox.Text;
                     ApartmentTextBox.BackColor = AppColors.DefaultColor;
                 }
-                catch(ArgumentException)
+                catch (ArgumentException)
                 {
-                    ApartmentTextBox.BackColor= AppColors.ErrorColor;
+                    ApartmentTextBox.BackColor = AppColors.ErrorColor;
                 }
             }
         }
+
     }
 }

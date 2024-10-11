@@ -17,13 +17,12 @@ namespace ObjectOrientedPractics.View.Tabs
     {
         List<Customer> _customers = new List<Customer>();
         private Customer _currentCustomer = new Customer();
+        
 
         public CustomersTab()
         {
             InitializeComponent();
-
         }
-
 
 
         private void UpdateListBoxItem()
@@ -51,27 +50,28 @@ namespace ObjectOrientedPractics.View.Tabs
                 MessageBox.Show("Заполните все поля");
                 return;
             }
+            Customer NewCustomer = new Customer(FullNameTextBox.Text, AddressControl1.Address);
+            _customers.Add(NewCustomer);
+            CustomersListBox.Items.Add(NewCustomer);
 
-            _currentCustomer = new Customer(FullNameTextBox.Text, AddressControl1.Address);
-            _customers.Add(_currentCustomer);
-            CustomersListBox.Items.Add(_currentCustomer);
-            UpdateListBoxItem();
         }
 
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex != -1)
+            if (CustomersListBox.SelectedIndex != -1 || CustomersListBox.SelectedItem !=null)
             {
+                AddressControl1.IsUpdatingFieldFlag = true;
                 _currentCustomer = _customers[CustomersListBox.SelectedIndex];
 
                 IdTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
                 AddressControl1.Address = _currentCustomer.Address;//AddressTextBox.Text = _currentCustomer.Address;
+                //AddressControl1.UpdateAddressFields();
             }
             else
             {
-
             }
+
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
@@ -81,7 +81,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = _customers[CustomersListBox.SelectedIndex];
                 _customers.Remove(_currentCustomer);
                 CustomersListBox.Items.RemoveAt(CustomersListBox.SelectedIndex);
-                ClearInputField();
+                //CustomersListBox.SelectedIndex = -1;
+                //ClearInputField();
             }
         }
 
@@ -89,7 +90,9 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (CustomersListBox.IndexFromPoint(e.Location) == -1)
             {
+                AddressControl1.IsUpdatingFieldFlag = false;
                 CustomersListBox.ClearSelected();
+                ClearInputField();
             }
         }
 
@@ -99,7 +102,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 try
                 {
-                    if (!string.IsNullOrEmpty(FullNameTextBox.Text) && !AddressControl1.AddressIsNullOrEmpty() )
+                    if (!string.IsNullOrEmpty(FullNameTextBox.Text) || !AddressControl1.AddressIsNullOrEmpty() )
                     {
                         _currentCustomer.FullName = FullNameTextBox.Text;
                         UpdateListBoxItem();
@@ -138,6 +141,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
         */
+
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {

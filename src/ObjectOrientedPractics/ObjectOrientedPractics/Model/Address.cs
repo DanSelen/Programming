@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObjectOrientedPractics.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,10 +39,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                if (value.Length > 50)
-                {
-                    throw new ArgumentException("В строке не должно быть больше 50 символов");
-                }
+                ValueValidator.AssertStringOnLength(value, 50, nameof(Country));
                 _country = value;
             }
         }
@@ -53,10 +51,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                if (value.Length > 50)
-                {
-                    throw new ArgumentException("В строке не должно быть больше 50 символов");
-                }
+                ValueValidator.AssertStringOnLength(value, 50, nameof(Country));
                 _city = value;
             }
         }
@@ -68,10 +63,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                if (value.Length > 100)
-                {
-                    throw new ArgumentException("В строке не должно быть больше 100 символов");
-                }
+                ValueValidator.AssertStringOnLength(value, 100, nameof(Street));
                 _street = value;
             }
         }
@@ -83,10 +75,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                if (value.Length > 10)
-                {
-                    throw new ArgumentException("В строке не должно быть больше 10 символов");
-                }
+                ValueValidator.AssertStringOnLength(value, 10, nameof(Building));
                 _building = value;
             }
         }
@@ -98,10 +87,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                if (value.Length > 10)
-                {
-                    throw new ArgumentException("В строке не должно быть больше 10 символов");
-                }
+                ValueValidator.AssertStringOnLength(value, 10, nameof(Apartment));
                 _apartment = value;
             }
         }
@@ -110,11 +96,11 @@ namespace ObjectOrientedPractics.Model
         public Address()
         {
             Index = 100000;
-            Country = "";
-            City = "";
-            Street = "";
-            Building = "";
-            Apartment = "";
+            Country = string.Empty;
+            City = string.Empty;
+            Street = string.Empty;
+            Building = string.Empty;
+            Apartment = string.Empty;
         }
         public Address(int index, string country, string city, string street, string building, string apartment)
         {
