@@ -12,7 +12,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс <see cref="Item"/> представляет товар с уникальным идентификатором, названием, описанием и стоимостью.
     /// </summary>
-    internal class Item
+    public class Item
     {
         /// <summary>
         /// Уникальный идентификатор товара, генерируемый автоматически.
@@ -120,6 +120,10 @@ namespace ObjectOrientedPractics.Model
             Cost = cost;
             _id = IdGenerator.GetNextId();
         }
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Item"/> с пустыми значениями.
+        /// </summary>
         public Item ()
         {
             Name= string.Empty;
@@ -129,6 +133,11 @@ namespace ObjectOrientedPractics.Model
             _id = IdGenerator.GetNextId();
         }
 
+
+        /// <summary>
+        /// Возвращает строковое представление товара.
+        /// </summary>
+        /// <returns>Строка, содержащая идентификатор, название, категорию, описание и стоимость товара.</returns>
         public override string ToString()
         {
             return $"{Id} - {Name} -{Category} - {Info} - {Cost}";

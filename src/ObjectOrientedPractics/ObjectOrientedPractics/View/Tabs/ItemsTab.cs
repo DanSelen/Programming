@@ -12,18 +12,52 @@ using System.Windows.Forms;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
+    /// <summary>
+    /// Класс, представляющий вкладку для управления товарами.
+    /// </summary>
     public partial class ItemsTab : UserControl
     {
+        // Список товаров
         List<Item> _items = new List<Item>();
 
-        //new Item чтобы _currentItem != null при иннициализации
+        // Текущий товар, используется для редактирования
         private Item _currentItem = new Item();
 
-
+        /// <summary>
+        /// Конструктор для инициализации компонентов и комбобокса категорий.
+        /// </summary>
         public ItemsTab()
         {
             InitializeComponent();
             InitializeCombobox(CategoryComboBox, typeof(Category));
+        }
+
+        /// <summary>
+        /// Свойство для получения и установки списка товаров.
+        /// </summary>
+        public List<Item> Items
+        {
+            get
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+                UpdateListBox();
+            }
+        }
+
+        /// <summary>
+        /// Обновляет список товаров в ListBox.
+        /// </summary>
+        private void UpdateListBox()
+        {
+            ItemsListBox.Items.Clear();
+            foreach (var item in _items)
+            {
+                ItemsListBox.Items.Add(item);
+            }
         }
 
         /// <summary>
@@ -40,6 +74,10 @@ namespace ObjectOrientedPractics.View.Tabs
             comboBox.SelectedIndex = -1;
         }
 
+
+        /// <summary>
+        /// Очищает поля ввода на форме.
+        /// </summary>
         private void ClearInputField()
         {
             IdTextBox.Clear();
@@ -52,6 +90,9 @@ namespace ObjectOrientedPractics.View.Tabs
             DescriptionTextBox.BackColor = AppColors.DefaultColor;
         }
 
+        /// <summary>
+        /// Обновляет выбранный элемент в списке товаров.
+        /// </summary>
         private void UpdateListBoxItem()
         {
             if (_currentItem != null && ItemsListBox.SelectedIndex != -1)
@@ -60,6 +101,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обработчик события нажатия кнопки "Добавить".
+        /// </summary>
         private void AddButton_Click(object sender, EventArgs e)
         {
             //Если поля заполнены выводим сообщение
@@ -94,6 +138,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения выбранного элемента в списке товаров.
+        /// </summary>
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ItemsListBox.SelectedIndex != -1)
@@ -108,12 +155,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 DescriptionTextBox.Text = _currentItem.Info;
                 CategoryComboBox.SelectedIndex = (int)_currentItem.Category;
             }
-            else
-            {
-                
-            }
         }
 
+        /// <summary>
+        /// Обработчик события нажатия кнопки "Удалить".
+        /// </summary>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             if (ItemsListBox.SelectedIndex != -1)
@@ -132,6 +178,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обработчик события клика мышью по списку товаров.
+        /// </summary>
         private void ItemsListBox_MouseClick(object sender, MouseEventArgs e)
         {
             if (ItemsListBox.IndexFromPoint(e.Location) == -1)
@@ -143,6 +192,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в поле "Цена".
+        /// </summary>
         private void CostTextBox_TextChanged(object sender, EventArgs e)
         {
             if (_currentItem != null && ItemsListBox.SelectedIndex != -1)
@@ -175,6 +227,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в поле "Название".
+        /// </summary>
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
             if (_currentItem != null && ItemsListBox.SelectedIndex != -1)
@@ -199,6 +254,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в поле "Описание".
+        /// </summary>
         private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
         {
             if (_currentItem != null && ItemsListBox.SelectedIndex != -1)
@@ -223,6 +281,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обработчик события нажатия кнопки "Сгенерировать".
+        /// </summary>
         private void GenerateButton_Click(object sender, EventArgs e)
         {
             Item RandomItem = ItemFactory.CreateRandomItem();
@@ -230,6 +291,9 @@ namespace ObjectOrientedPractics.View.Tabs
             ItemsListBox.Items.Add(RandomItem);
         }
 
+        /// <summary>
+        /// Обработчик события изменения выбранного значения в комбобоксе категорий.
+        /// </summary>
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_currentItem != null && ItemsListBox.SelectedIndex != -1)

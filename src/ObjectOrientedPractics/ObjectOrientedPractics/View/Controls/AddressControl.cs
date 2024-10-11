@@ -13,12 +13,23 @@ using System.Windows.Forms;
 
 namespace ObjectOrientedPractics.View.Controls
 {
+    /// <summary>
+    /// Представляет элемент управления для работы с адресом.
+    /// </summary>
     public partial class AddressControl : UserControl
     {
+        // Хранит текущий адрес
         private Address _currentAddress;
 
-        //Для обновления коректного обновления Address полей
-        public bool IsUpdatingFieldFlag = true; 
+        /// <summary>
+        /// Флаг для корректного обновления полей адреса.
+        /// </summary>
+        public bool IsUpdatingFieldFlag = true;
+
+        /// <summary>
+        /// Получает или устанавливает текущий адрес.
+        /// При установке нового адреса обновляет поля адреса.
+        /// </summary>
         public Address Address
         {
             get
@@ -31,12 +42,19 @@ namespace ObjectOrientedPractics.View.Controls
                 UpdateAddressFields();
             }
         }
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="AddressControl"/>.
+        /// </summary>
         public AddressControl()
         {
             InitializeComponent();
             Address = new Address();
         }
 
+        /// <summary>
+        /// Обновляет поля адреса текущими значениями адреса.
+        /// </summary>
         public void UpdateAddressFields()
         {
             PostIndexTextBox.Text = Address.Index.ToString();
@@ -46,6 +64,11 @@ namespace ObjectOrientedPractics.View.Controls
             BuildingTextBox.Text = Address.Building.ToString();
             ApartmentTextBox.Text = Address.Apartment.ToString();
         }
+
+        /// <summary>
+        /// Проверяет, является ли адрес пустым или отсутствующим.
+        /// </summary>
+        /// <returns>true, если хотя бы одно поле адреса пустое; иначе false.</returns>
         public bool AddressIsNullOrEmpty()
         {
             if (string.IsNullOrEmpty(PostIndexTextBox.Text) ||
@@ -62,6 +85,10 @@ namespace ObjectOrientedPractics.View.Controls
                 return false;
             }
         }
+
+        /// <summary>
+        /// Очищает все поля адреса.
+        /// </summary>
         public void Clear()
         {
             PostIndexTextBox.Clear();
@@ -72,6 +99,10 @@ namespace ObjectOrientedPractics.View.Controls
             ApartmentTextBox.Clear();
         }
 
+
+        /// <summary>
+        /// Обработчик события изменения текста в поле индекса.
+        /// </summary>
         private void PostIndexTextBox_TextChanged(object sender, EventArgs e)
         {
             if (_currentAddress != null )
@@ -96,6 +127,9 @@ namespace ObjectOrientedPractics.View.Controls
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в поле страны.
+        /// </summary>
         private void CountryTextBox_TextChanged(object sender, EventArgs e)
         {
             if ( IsUpdatingFieldFlag == true)
@@ -112,6 +146,10 @@ namespace ObjectOrientedPractics.View.Controls
             }
         }
 
+
+        /// <summary>
+        /// Обработчик события изменения текста в поле улицы.
+        /// </summary>
         private void StreetTextBox_TextChanged(object sender, EventArgs e)
         {
             if (IsUpdatingFieldFlag == true)
@@ -129,6 +167,9 @@ namespace ObjectOrientedPractics.View.Controls
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в поле города.
+        /// </summary>
         private void CityTextBox_TextChanged(object sender, EventArgs e)
         {
             if (IsUpdatingFieldFlag == true)
@@ -145,6 +186,9 @@ namespace ObjectOrientedPractics.View.Controls
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в поле здания.
+        /// </summary>
         private void BuildingTextBox_TextChanged(object sender, EventArgs e)
         {
             if (IsUpdatingFieldFlag == true)
@@ -161,6 +205,9 @@ namespace ObjectOrientedPractics.View.Controls
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в поле квартиры.
+        /// </summary>
         private void ApartmentTextBox_TextChanged(object sender, EventArgs e)
         {
             if (IsUpdatingFieldFlag == true)

@@ -16,6 +16,7 @@ namespace ObjectOrientedPractics.Services
         /// Статическое поле, общее для всех экземпляров класса.
         /// </summary>
         private static int _counter;
+
         /// <summary>
         /// Генерирует следующий уникальный идентификатор.
         /// </summary>

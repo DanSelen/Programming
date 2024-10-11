@@ -9,7 +9,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Перечисление категорий товаров
     /// </summary>
-    enum Category
+    public enum Category
     {
         Electronics,
         Clothing,

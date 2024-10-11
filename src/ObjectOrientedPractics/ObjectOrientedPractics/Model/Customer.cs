@@ -12,7 +12,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс <see cref="Customer"/> представляет клиента с уникальным идентификатором, полным именем и адресом.
     /// </summary>
-    internal class Customer
+    public class Customer
     {
         /// <summary>
         /// Уникальный идентификатор клиента, генерируемый автоматически.
@@ -85,6 +85,10 @@ namespace ObjectOrientedPractics.Model
             Address = address;
             _id = IdGenerator.GetNextId();
         }
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Customer"/> с пустыми значениями.
+        /// </summary>
         public Customer()
         {
             FullName = string.Empty; // Инициализируем пустой строкой
@@ -92,9 +96,13 @@ namespace ObjectOrientedPractics.Model
             _id = IdGenerator.GetNextId(); // Генерируем новый Id
         }
 
+        /// <summary>
+        /// Возвращает строковое представление клиента.
+        /// </summary>
+        /// <returns>Строка, содержащая идентификатор и полное имя клиента.</returns>
         public override string ToString()
         {
-            return $"{Id} - {FullName} - {Address}";
+            return $"{Id} - {FullName}";
         }
 
     }

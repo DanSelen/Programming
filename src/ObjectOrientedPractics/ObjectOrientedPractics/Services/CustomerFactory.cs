@@ -7,10 +7,20 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Services
 {
+    /// <summary>
+    /// Класс <see cref="CustomerFactory"/> предоставляет методы для автоматического создания клиентов.
+    /// </summary>
     internal class CustomerFactory
     {
+        /// <summary>
+        /// Генератор случайных чисел для создания случайных данных.
+        /// </summary>
         private static Random _random = new Random();
 
+        /// <summary>
+        /// Создает случайного клиента с предустановленными именами и адресами.
+        /// </summary>
+        /// <returns>Возвращает новый экземпляр класса <see cref="Customer"/> со случайным именем и адресом.</returns>
         public static Customer CreateRandomCustomer()
         {
             string[] SampleFullNames = { "Веденеев Василий Никандрович", "Пастух Тимофей Афанасьевич", "Бельтюкова Сюзанна Ивановна", "Цедлиц Федор Никифорович", "Козин Давид Себастьянович" };

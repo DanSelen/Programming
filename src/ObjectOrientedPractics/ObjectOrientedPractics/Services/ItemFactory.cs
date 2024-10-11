@@ -7,10 +7,20 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Services
 {
+    /// <summary>
+    /// Класс <see cref="ItemFactory"/> предоставляет методы для автоматического создания случайных товаров.
+    /// </summary>
     internal class ItemFactory
     {
+        /// <summary>
+        /// Генератор случайных чисел для создания случайных данных.
+        /// </summary>
         private static Random _random = new Random();
 
+        /// <summary>
+        /// Создает случайный товар с предустановленными именами, описаниями и случайной стоимостью.
+        /// </summary>
+        /// <returns>Возвращает новый экземпляр класса <see cref="Item"/> с случайными параметрами.</returns>
         public static Item CreateRandomItem()
         {
             string[] SampleNames = { "Laptop", "Smartphone", "Headphones", "Monitor", "Keyboard" };
