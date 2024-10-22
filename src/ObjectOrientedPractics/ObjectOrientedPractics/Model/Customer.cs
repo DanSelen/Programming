@@ -68,6 +68,8 @@ namespace ObjectOrientedPractics.Model
                 _address = value;
             }
         }
+        //public Address Address { get; set; }
+        //Если нужно сделать композицию вместо агрегации
 
         /// <summary>
         /// Возвращает уникальный идентификатор клиента.
@@ -92,7 +94,7 @@ namespace ObjectOrientedPractics.Model
         public Customer()
         {
             FullName = string.Empty; // Инициализируем пустой строкой
-            Address = new Address(); // Инициализируем новый экземпляр Address
+            //Address = new Address(); // Инициализируем новый экземпляр Address
             _id = IdGenerator.GetNextId(); // Генерируем новый Id
         }
 

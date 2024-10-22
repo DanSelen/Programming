@@ -133,16 +133,23 @@ namespace ObjectOrientedPractics.View.Controls
         private void CountryTextBox_TextChanged(object sender, EventArgs e)
         {
             if ( IsUpdatingFieldFlag == true)
-            { 
-            try
             {
-                Address.Country = CountryTextBox.Text;
-                CountryTextBox.BackColor = AppColors.DefaultColor;
-            }
-            catch (ArgumentException)
-            {
-                CountryTextBox.BackColor = AppColors.ErrorColor;
-            }
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(CountryTextBox.Text))
+                    {
+                        Address.Country = CountryTextBox.Text;
+                        CountryTextBox.BackColor = AppColors.DefaultColor;
+                    }
+                    else
+                    {
+                        CountryTextBox.BackColor = AppColors.ErrorColor;
+                    }
+                }
+                catch (ArgumentException)
+                {
+                    CountryTextBox.BackColor = AppColors.ErrorColor;
+                }
             }
         }
 
@@ -156,8 +163,15 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 try
                 {
-                    Address.Street = StreetTextBox.Text;
-                    StreetTextBox.BackColor = AppColors.DefaultColor;
+                    if (!string.IsNullOrWhiteSpace(StreetTextBox.Text))
+                    {
+                        Address.Street = StreetTextBox.Text;
+                        StreetTextBox.BackColor = AppColors.DefaultColor;
+                    }
+                    else
+                    {
+                        StreetTextBox.BackColor= AppColors.ErrorColor;
+                    }
                 }
 
                 catch (ArgumentException)
@@ -176,8 +190,15 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 try
                 {
-                    Address.City = CityTextBox.Text;
-                    CityTextBox.BackColor = AppColors.DefaultColor;
+                    if (!(string.IsNullOrWhiteSpace(CityTextBox.Text)))
+                    {
+                        Address.City = CityTextBox.Text;
+                        CityTextBox.BackColor = AppColors.DefaultColor;
+                    }
+                    else
+                    {
+                        CityTextBox.BackColor = AppColors.ErrorColor;
+                    }
                 }
                 catch (ArgumentException)
                 {
@@ -195,8 +216,15 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 try
                 {
-                    Address.Building = BuildingTextBox.Text;
-                    BuildingTextBox.BackColor = AppColors.DefaultColor;
+                    if (!string.IsNullOrWhiteSpace(BuildingTextBox.Text))
+                    {
+                        Address.Building = BuildingTextBox.Text;
+                        BuildingTextBox.BackColor = AppColors.DefaultColor;
+                    }
+                    else
+                    {
+                        BuildingTextBox.BackColor = AppColors.ErrorColor;
+                    }
                 }
                 catch (ArgumentException)
                 {
@@ -214,8 +242,15 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 try
                 {
-                    Address.Apartment = ApartmentTextBox.Text;
-                    ApartmentTextBox.BackColor = AppColors.DefaultColor;
+                    if (!string.IsNullOrWhiteSpace(ApartmentTextBox.Text))
+                    {
+                        Address.Apartment = ApartmentTextBox.Text;
+                        ApartmentTextBox.BackColor = AppColors.DefaultColor;
+                    }
+                    else
+                    {
+                        ApartmentTextBox.BackColor = AppColors.ErrorColor;
+                    }
                 }
                 catch (ArgumentException)
                 {

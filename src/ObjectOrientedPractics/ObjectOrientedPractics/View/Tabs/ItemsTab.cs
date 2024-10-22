@@ -199,7 +199,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (_currentItem != null && ItemsListBox.SelectedIndex != -1)
             {
-                if (!string.IsNullOrEmpty(CostTextBox.Text))
+                if (!string.IsNullOrWhiteSpace(CostTextBox.Text))
                 {
                     try
                     {
@@ -224,6 +224,10 @@ namespace ObjectOrientedPractics.View.Tabs
                         CostTextBox.BackColor = AppColors.ErrorColor;
                     }
                 }
+                else
+                {
+                    CostTextBox.BackColor= AppColors.ErrorColor;
+                }
             }
         }
 
@@ -236,7 +240,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 try
                 {
-                    if (!string.IsNullOrEmpty(NameTextBox.Text))
+                    if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                     {
                         _currentItem.Name = NameTextBox.Text;
                         UpdateListBoxItem();
@@ -245,6 +249,10 @@ namespace ObjectOrientedPractics.View.Tabs
                         NameTextBox.Focus();
                         NameTextBox.Select(NameTextBox.Text.Length, 0);
                         NameTextBox.BackColor = AppColors.DefaultColor;
+                    }
+                    else
+                    {
+                        NameTextBox.BackColor = AppColors.ErrorColor;
                     }
                 }
                 catch (ArgumentException)
@@ -263,7 +271,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 try
                 {
-                    if (!string.IsNullOrEmpty(DescriptionTextBox.Text))
+                    if (!string.IsNullOrWhiteSpace(DescriptionTextBox.Text))
                     {
                         _currentItem.Info = DescriptionTextBox.Text;
                         UpdateListBoxItem();
@@ -272,6 +280,10 @@ namespace ObjectOrientedPractics.View.Tabs
                         DescriptionTextBox.Focus();
                         DescriptionTextBox.Select(DescriptionTextBox.Text.Length, 0);
                         DescriptionTextBox.BackColor = AppColors.DefaultColor;
+                    }
+                    else
+                    {
+                        DescriptionTextBox.BackColor = AppColors.ErrorColor;
                     }
                 }
                 catch (ArgumentException)

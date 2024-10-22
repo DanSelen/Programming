@@ -160,19 +160,24 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 try
                 {
-                    if (!string.IsNullOrEmpty(FullNameTextBox.Text) || !AddressControl1.AddressIsNullOrEmpty() )
+                    if (_currentCustomer != null && !string.IsNullOrWhiteSpace(FullNameTextBox.Text))
                     {
                         _currentCustomer.FullName = FullNameTextBox.Text;
+                        FullNameTextBox.BackColor = AppColors.DefaultColor;
                         UpdateListBoxItem();
 
                         //Решение проблемы съезжания курсора влево
                         FullNameTextBox.Focus();
                         FullNameTextBox.Select(FullNameTextBox.Text.Length, 0);
                     }
+                    else
+                    {
+                        FullNameTextBox.BackColor = AppColors.ErrorColor;
+                    }
                 }
                 catch (ArgumentException)
                 {
-                    FullNameTextBox.BackColor = AppColors.DefaultColor;
+                    FullNameTextBox.BackColor = AppColors.ErrorColor;
                 }
             }
         }

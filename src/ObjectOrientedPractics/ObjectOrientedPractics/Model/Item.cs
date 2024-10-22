@@ -38,6 +38,8 @@ namespace ObjectOrientedPractics.Model
         /// Категория товара
         /// </summary>
         public Category Category { get; set; }
+        //public Category Category { get; set; } = new Category();
+        //Если нужно сделать композицию вместо агрегации
 
         /// <summary>
         /// Получает или задает название товара.
