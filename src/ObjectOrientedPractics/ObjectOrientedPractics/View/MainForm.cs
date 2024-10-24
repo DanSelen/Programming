@@ -10,6 +10,9 @@ namespace ObjectOrientedPractics
             InitializeComponent();
             ItemsTab1.Items = _store.Items;
             CustomersTab1.Customers = _store.Customers;
+
+            CartsTab1.Items = _store.Items;
+            CartsTab1.Customers = _store.Customers;
         }
     }
 }

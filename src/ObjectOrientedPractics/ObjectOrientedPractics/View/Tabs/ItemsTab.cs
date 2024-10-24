@@ -18,7 +18,7 @@ namespace ObjectOrientedPractics.View.Tabs
     public partial class ItemsTab : UserControl
     {
         // Список товаров
-        List<Item> _items = new List<Item>();
+        private List<Item> _items = new List<Item>();
 
         // Текущий товар, используется для редактирования
         private Item _currentItem = new Item();
