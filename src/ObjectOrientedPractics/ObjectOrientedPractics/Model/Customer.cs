@@ -25,9 +25,29 @@ namespace ObjectOrientedPractics.Model
         private string _fullName = string.Empty;
 
         /// <summary>
+        /// Корзина клиента.
+        /// </summary>
+        private Cart _cart;
+
+        /// <summary>
         /// Адрес клиента.
         /// </summary>
         private Address _address = new Address();
+
+        ///<summary>
+        ///Получает или задает корзину клиента.
+        ///</summary>
+        public Cart Cart
+        {
+            get
+            {
+                return _cart;
+            }
+            set
+            {
+                _cart = value;
+            }
+        }
 
         /// <summary>
         /// Получает или задает полное имя клиента.
@@ -36,6 +56,7 @@ namespace ObjectOrientedPractics.Model
         /// <exception cref="ArgumentException">
         /// Выбрасывается, если длина имени превышает 200 символов.
         /// </exception>
+        /// 
         public string FullName
         {
             get
@@ -52,10 +73,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Получает или задает адрес клиента.
         /// Валидация происходит с помощью <see cref="ValueValidator.AssertStringOnLength"/>.
-        /// </summary>
-        /// <exception cref="ArgumentException">
-        /// Выбрасывается, если длина адреса превышает 500 символов.
-        /// </exception>
+        /// 
         public Address Address
         {
             get
@@ -86,6 +104,7 @@ namespace ObjectOrientedPractics.Model
             FullName = fullName;
             Address = address;
             _id = IdGenerator.GetNextId();
+            Cart = new Cart();
         }
 
         /// <summary>
@@ -96,6 +115,7 @@ namespace ObjectOrientedPractics.Model
             FullName = string.Empty; // Инициализируем пустой строкой
             //Address = new Address(); // Инициализируем новый экземпляр Address
             _id = IdGenerator.GetNextId(); // Генерируем новый Id
+            Cart = new Cart();
         }
 
         /// <summary>
